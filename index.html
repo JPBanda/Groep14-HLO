@@ -1,14 +1,67 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <title>Document</title>
+    <title>Vr-Doors</title>
+    <script src='main.js'></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
 </head>
 <body>
-    
+    <a-scene>
 
+
+        <!-- <a-camera id="js--camera" wasd-controls="acceleration: 200" position="0.5 1.5 1">
+            <a-entity id='js--cursor'
+            animation__click='property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1'
+            animation__fusing='property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1'
+            animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+            cursor='fuse: true; fuseTimeout: 2000' 
+            material="color: purple; shader: flat" 
+            geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01" 
+            position="0 0 -0.5" 
+            raycaster="objects: .js--interact"></a-entity>
+        </a-camera> -->
+
+        <a-entity environment="preset:forest;"></a-entity>
+
+
+        <a-camera id='js--camera' position='0 1.5 0' wasd-controls="acceleration: 150;">
+            <a-cursor 
+            id='js--cursor'
+            color='purple'
+            animation__click='property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1'
+            animation__fusing='property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1'
+            animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+            cursor='fuse: true; fuseTimeout: 2000' 
+            geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01" 
+            position="0 0 -0.5" 
+            raycaster="objects: .js--interact"></a-cursor>
+        </a-camera>
+
+        <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-0.5 1.5 -3.5" >
+           <a-plane color="black" width="0.1" height="0.4" position="0 0 0.06"></a-plane> 
+        </a-box>
+        <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="0.5 1.5 -3.5" >
+            <a-plane color="black" width="0.1" height="0.4" position="0 0 0.06"></a-plane>  
+        </a-box>
+
+        <a-box class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-0.5 1.5 -3.3" rotation="45 0 0">
+            <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+        </a-box>
+        <a-box class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="0.5 1.5 -3.3" rotation="45 0 0">
+            <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+        </a-box>
+        
+
+        <a-box color="black" width="2" height="5" position="0 0 -4"></a-box>
+        <a-box class="js--door" color="red" width="2" height="3" position="-2 1 -4"></a-box>
+        <a-box color="black" width="2" height="5" position="-4 0 -4"></a-box>
+        <a-box class="js--door" color="red" width="2" height="3" position="2 1 -4"></a-box>
+        <a-box color="black" width="2" height="5" position="4 0 -4"></a-box>
+
+
+    </a-scene>
 
 </body>
 </html>
