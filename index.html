@@ -23,6 +23,20 @@
             raycaster="objects: .js--interact"></a-entity>
         </a-camera> -->
 
+
+        <a-assets>
+            <a-asset-item id="microscope-obj" src="microscope.obj"></a-asset-item>
+            <a-asset-item id="microscope.mtl" src="microscope.mtl"></a-asset-item>
+            <a-asset-item id="klem-obj" src="Klem.obj"></a-asset-item>
+            <a-asset-item id="klem.mtl" src="Klem.mtl"></a-asset-item>
+            <a-asset-item id="gloeilamp-obj" src="gloeilamp.obj"></a-asset-item>
+            <a-asset-item id="gloeilamp.mtl" src="gloeilamp.mtl"></a-asset-item>
+        </a-assets>
+
+        <a-obj-model src="#microscope-obj" mtl="microscope.mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model src="#klem-obj" mtl="klem.mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model src="#gloeilamp-obj" mtl="gloeilamp.mtl" position="-3 1 -2" scale="0.09 0.09 0.09"></a-obj-model>
+
         <a-entity environment="preset:forest;"></a-entity>
 
 
