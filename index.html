@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vr-Doors</title>
-    <script src='main.js'></script>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src='hint.js'></script>
 </head>
 <body>
     <a-scene>
@@ -39,6 +39,19 @@
 
         <a-entity environment="preset:forest;"></a-entity>
 
+        <a-assets>
+            <!-- <a-asset-item id="microscope-obj" src="microscope.obj"></a-asset-item>
+            <a-asset-item id="microscope.mtl" src="microscope.mtl"></a-asset-item>
+            <a-asset-item id="klem-obj" src="Klem.obj"></a-asset-item>
+            <a-asset-item id="klem.mtl" src="Klem.mtl"></a-asset-item> -->
+            <a-asset-item id="gloeilamp-obj" src="gloeilamp.obj"></a-asset-item>
+            <a-asset-item id="gloeilamp.mtl" src="gloeilamp.mtl"></a-asset-item>
+        </a-assets>
+
+        <!-- <a-obj-model  src="#microscope-obj" mtl="microscope.mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model src="#klem-obj" mtl="klem.mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
+        <a-obj-model hint class='js--gloeilamp js--interact' src="#gloeilamp-obj" mtl="gloeilamp.mtl" position="-4 0.5 0" scale="0.09 0.09 0.09" log="event: test;"></a-obj-model>
+
 
         <a-camera id='js--camera' position='0 1.5 0' wasd-controls="acceleration: 150;">
             <a-cursor 
@@ -50,7 +63,8 @@
             cursor='fuse: true; fuseTimeout: 2000' 
             geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01" 
             position="0 0 -0.5" 
-            raycaster="objects: .js--interact"></a-cursor>
+            raycaster="objects: .js--interact"
+            log="event: test;"></a-cursor>
         </a-camera>
 
         <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-0.5 1.5 -3.5" >
@@ -74,8 +88,13 @@
         <a-box class="js--door" color="red" width="2" height="3" position="2 1 -4"></a-box>
         <a-box color="black" width="2" height="5" position="4 0 -4"></a-box>
 
+        <a-plane width="5" height="1" position="-4 1.5 0" rotation="0 90 0"></a-plane>
+        <a-text vlak class="js--hint-text" color="black" value="Hier komt de hint" align="center" position="-4 1.5 0" rotation="0 90 0"></a-text>
+
 
     </a-scene>
+
+    <script src='main.js'></script>
 
 </body>
 </html>
