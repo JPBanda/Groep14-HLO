@@ -2,25 +2,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vr-Doors</title>
+    <title>Vr-Omgeving</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
 </head>
 <body>
     <a-scene>
-
-
-        <!-- <a-camera id="js--camera" wasd-controls="acceleration: 200" position="0.5 1.5 1">
-            <a-entity id='js--cursor'
+        <a-camera id='js--camera' position='1 1.5 5' wasd-controls="acceleration: 200;">
+            <a-cursor 
+            id='js--cursor'
+            color='purple'
             animation__click='property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1'
             animation__fusing='property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1'
             animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
             cursor='fuse: true; fuseTimeout: 2000' 
-            material="color: purple; shader: flat" 
             geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01" 
             position="0 0 -0.5" 
-            raycaster="objects: .js--interact"></a-entity>
-        </a-camera> -->
+            raycaster="objects: .js--interact"></a-cursor>
+        </a-camera>
 
 
         <a-assets>
@@ -42,24 +41,61 @@
         <a-obj-model src="#klem-obj" mtl="klem.mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
         <a-obj-model src="#gloeilamp-obj" mtl="gloeilamp.mtl" position="-3 1 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
 
-        <a-obj-model src="#muur-obj" mtl="#muur-mtl" position="1 0 1"></a-obj-model>
-        <a-obj-model src="#muur-obj" mtl="#muur-mtl" position="-1 0 1"></a-obj-model>
+        <!-- <a-obj-model src="#muur-obj" mtl="#muur-mtl" position="1 0 1"></a-obj-model> -->
+
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-3 0 -2" scale="0.009 0.009 0.01" rotation="0 90 0"></a-obj-model>
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-5.175w 0 -5.675" scale="0.009 0.009 0.01" rotation="0 -90 0"></a-obj-model>
+        
+        <!--Spawn-->
+        <a-box color="grey" position="2.95 1.1 2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="2.95 1.1 4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="2.95 1.1 6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+
+        <a-box color="grey" position="-2 1.1 2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="-2 1.1 4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="-2 1.1 6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+
+        <a-box color="grey" position="2 1.1 7.05" width="2" depth="0.1" height="2.4" rotation="0 0 0"></a-box>
+        <a-box color="grey" position="0 1.1 7.05" width="2" depth="0.1" height="2.4" rotation="0 0 0"></a-box>
+        <a-box color="grey" position="-2 1.1 7.05" width="2" depth="0.1" height="2.4" rotation="0 0 0"></a-box>
+
+        <!-- achter -->
+        <!-- <a-box color="grey" position="2 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box> -->
+        <!-- <a-box color="grey" position="0 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box> -->
+        <a-box color="grey" position="-2 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="-4 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="-6 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="-8 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
+
+        <!-- links -->
+        <a-box color="grey" position="-9 1.1 0" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
+        <a-box color="grey" position="-9 1.1 -2" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
+        <a-box color="grey" position="-9 1.1 -4" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
+        <a-box color="grey" position="-9 1.1 -6" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
+        <a-box color="grey" position="-9 1.1 -8" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
+        <a-box color="grey" position="-9 1.1 -10" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
+
+        <!-- rechts -->
+        <a-box color="grey" position="2.95 1.1 0" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="2.95 1.1 -2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="2.95 1.1 -4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="2.95 1.1 -6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="2.95 1.1 -8" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="2.95 1.1 -10" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+
+        <!-- voor -->
+        <a-box color="grey" position="2 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="0 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="-2 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="-4 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="-6 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="-8 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+
+        <!-- vloer -->
+        <a-plane color="darkorange" width="12" height="12" position="-3 -0.1 -5" rotation="-90 0 0"></a-plane>
+        <a-plane color="gold" width="4" height="0.2" position="1 -0.09 0.9" rotation="-90 0 0"></a-plane>
 
         <!-- <a-entity environment="preset:forest;"></a-entity> -->
-
-
-        <a-camera id='js--camera' position='0 1.5 0' wasd-controls="acceleration: 150;">
-            <a-cursor 
-            id='js--cursor'
-            color='purple'
-            animation__click='property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1'
-            animation__fusing='property: scale; startEvents: fusing; easing: easeInCubic; dur: 2000; from: 1 1 1; to: 0.1 0.1 0.1'
-            animation="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-            cursor='fuse: true; fuseTimeout: 2000' 
-            geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01" 
-            position="0 0 -0.5" 
-            raycaster="objects: .js--interact"></a-cursor>
-        </a-camera>
 
     </a-scene>
 
