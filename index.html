@@ -8,7 +8,7 @@
 </head>
 <body>
     <a-scene>
-        <a-camera id='js--camera' position='1 1.5 5' wasd-controls="acceleration: 200;">
+        <a-camera id='js--camera' position='0 1.5 5' wasd-controls="acceleration: 200;">
             <a-cursor 
             id='js--cursor'
             color='purple'
@@ -34,6 +34,8 @@
             <a-asset-item id="muur-mtl" src="./BlenderModellen/Muur.mtl"></a-asset-item>
             <a-asset-item id="lab-desk-obj" src="./BlenderModellen/Lab-Desk.obj"></a-asset-item>
             <a-asset-item id="lab-desk-mtl" src="./BlenderModellen/Lab-Desk.mtl"></a-asset-item>
+            <a-asset-item id="sink-obj" src="./BlenderModellen/Sink.obj"></a-asset-item>w
+            <a-asset-item id="sink-mtl" src="./BlenderModellen/Sink.mtl"></a-asset-item>
         </a-assets>
 
         <!-- <a-obj-model src="#microscope-obj" mtl="microscope.mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
@@ -42,24 +44,46 @@
 
         <!-- <a-obj-model src="#muur-obj" mtl="#muur-mtl" position="1 0 1"></a-obj-model> -->
 
-        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-4.5 0 -1" scale="0.009 0.009 0.01" rotation="0 90 0"></a-obj-model>
-        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-6.675 0 -4.6" scale="0.009 0.009 0.01" rotation="0 -90 0"></a-obj-model>
+        <!-- loop plekken -->
+        <a-box color="black" position="0 0.1 5" height="0.1"></a-box>
+        <a-box color="black" position="0 0.1 -4.5" height="0.1"></a-box>
+
+        <!-- tafels linker kant -->
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-6.5 0 -0.5" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-2.91 0 -2.675" scale="0.009 0.009 0.01" rotation="0 180 0"></a-obj-model>
+        <a-obj-model src="#sink-obj" mtl="#sink-mtl" position="-2.9 0 -2.67" scale="0.009 0.009 0.01" rotation="0 180 0"></a-obj-model>
+
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-6.5 0 -6.5" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-2.91 0 -8.675" scale="0.009 0.009 0.01" rotation="0 180 0"></a-obj-model>
+        <a-obj-model src="#sink-obj" mtl="#sink-mtl" position="-2.9 0 -8.67" scale="0.009 0.009 0.01" rotation="0 180 0"></a-obj-model>
+
+        <!-- tafels rechter kant -->
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="2.91 0 -0.5" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="6.5 0 -2.675" scale="0.009 0.009 0.01" rotation="0 180 0"></a-obj-model>
+        <a-obj-model src="#sink-obj" mtl="#sink-mtl" position="2.9 0 -0.5" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
+
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="2.91 0 -6.5" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
+        <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="6.5 0 -8.675" scale="0.009 0.009 0.01" rotation="0 180 0"></a-obj-model>
+        <a-obj-model src="#sink-obj" mtl="#sink-mtl" position="2.9 0 -6.5125" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
         
         <!--Spawn-->
         <a-box color="grey" position="2.95 1.1 2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
         <a-box color="grey" position="2.95 1.1 4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
         <a-box color="grey" position="2.95 1.1 6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
 
-        <a-box color="grey" position="-2 1.1 2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
-        <a-box color="grey" position="-2 1.1 4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
-        <a-box color="grey" position="-2 1.1 6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="-3 1.1 2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="-3 1.1 4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="-3 1.1 6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
 
         <a-box color="grey" position="2 1.1 7.05" width="2" depth="0.1" height="2.4" rotation="0 0 0"></a-box>
         <a-box color="grey" position="0 1.1 7.05" width="2" depth="0.1" height="2.4" rotation="0 0 0"></a-box>
         <a-box color="grey" position="-2 1.1 7.05" width="2" depth="0.1" height="2.4" rotation="0 0 0"></a-box>
 
         <!-- achter -->
-        <!-- <a-box color="grey" position="2 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box> -->
+        <a-box color="grey" position="8 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="6 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="4 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="2 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
         <!-- <a-box color="grey" position="0 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box> -->
         <a-box color="grey" position="-2 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
         <a-box color="grey" position="-4 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
@@ -75,14 +99,17 @@
         <a-box color="grey" position="-9 1.1 -10" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
 
         <!-- rechts -->
-        <a-box color="grey" position="2.95 1.1 0" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
-        <a-box color="grey" position="2.95 1.1 -2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
-        <a-box color="grey" position="2.95 1.1 -4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
-        <a-box color="grey" position="2.95 1.1 -6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
-        <a-box color="grey" position="2.95 1.1 -8" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
-        <a-box color="grey" position="2.95 1.1 -10" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="9 1.1 0" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="9 1.1 -2" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="9 1.1 -4" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="9 1.1 -6" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="9 1.1 -8" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="9 1.1 -10" width="2" depth="0.1" height="2.4" rotation="0 -90 0"></a-box>
 
         <!-- voor -->
+        <a-box color="grey" position="8 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="6 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
+        <a-box color="grey" position="4 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
         <a-box color="grey" position="2 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
         <a-box color="grey" position="0 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
         <a-box color="grey" position="-2 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
@@ -91,8 +118,9 @@
         <a-box color="grey" position="-8 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
 
         <!-- vloer -->
-        <a-plane color="darkorange" width="12" height="12" position="-3 -0.1 -5" rotation="-90 0 0"></a-plane>
-        <a-plane color="gold" width="4" height="0.2" position="1 -0.09 0.9" rotation="-90 0 0"></a-plane>
+        <a-plane color="darkorange" width="6" height="6" position="0 -0.1 4" rotation="-90 0 0"></a-plane>
+        <a-plane color="darkorange" width="18" height="12" position="0 -0.1 -5" rotation="-90 0 0"></a-plane>
+        <a-plane color="gold" width="4" height="0.2" position="0 -0.09 0.9" rotation="-90 0 0"></a-plane>
 
         <!-- <a-entity environment="preset:forest;"></a-entity> -->
 
