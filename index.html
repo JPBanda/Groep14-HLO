@@ -9,7 +9,6 @@
     <script src='collectible.js'></script>3
     <script src="moving.js"></script>
     <script src="pickup.js"></script>
-    <script src="putdown.js"></script>
 </head>
 <body>
     <a-scene id="js--scene">
@@ -57,7 +56,7 @@
         <a-obj-model src="#gasbrander-obj" mtl="#gasbrander-mtl" position="5 0.5 -2" scale="1.5 1.5 1.5"></a-obj-model>
         <a-obj-model class="js--interact" src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
         <a-obj-model hint class='js--gloeilamp js--interact' src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-4 0.5 0" scale="0.09 0.09 0.09" log="event: test;"></a-obj-model>
-        <a-obj-model pickup putdown collectible class="js--item js--col1 js--interact js--pickup" src="#microscope-obj" mtl="#microscope-mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model pickup collectible class="js--item js--col1 js--interact js--pickup" src="#microscope-obj" mtl="#microscope-mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
         <!-- <a-obj-model collectible class="js--item js--col2 js--interact" src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
 
 
@@ -111,7 +110,7 @@
         <a-box moving class="js--interact js--place" color="blue" position="0 0 10"></a-box>
         <a-box moving class="js--interact js--place" color="blue" position="0 0 0"></a-box>
 
-        <a-cylinder pickup class="js--placeholder js--interact" color="red" radius="0.5" height="0.1" position="1 0 10"></a-cylinder>
+        <a-cylinder pickup putdown class="js--placeholder js--interact" color="red" radius="0.5" height="0.1" position="1 0 10"></a-cylinder>
 
     </a-scene>
 
