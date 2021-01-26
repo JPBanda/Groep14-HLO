@@ -13,7 +13,7 @@
 </head>
 <body>
     <a-scene id="js--scene">
-        <a-camera id='js--camera' position='0 1.5 5' wasd-controls="acceleration: 200;">
+        <!-- <a-camera id='js--camera' position='0 1.5 5' wasd-controls="acceleration: 200;">
             <a-cursor 
             id='js--cursor'
             color='purple'
@@ -24,7 +24,7 @@
             geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01" 
             position="0 0 -0.5" 
             raycaster="objects: .js--interact"></a-cursor>
-        </a-camera>
+        </a-camera> -->
 
         <a-assets>
             <a-asset-item id="microscope-obj" src="./BlenderModellen/microscope.obj"></a-asset-item>
@@ -32,9 +32,16 @@
             <a-asset-item id="klem-obj" src="./BlenderModellen/Klem.obj"></a-asset-item>
             <a-asset-item id="klem.mtl" src="./BlenderModellen/Klem.mtl"></a-asset-item>
             <a-asset-item id="gloeilamp-obj" src="./BlenderModellen/gloeilamp.obj"></a-asset-item>
-
             <a-asset-item id="gloeilamp-mtl" src="./BlenderModellen/gloeilamp.mtl"></a-asset-item>
             <a-asset-item id="gasbrander-gltf" src="./BlenderModellen/gasbrander.gltf"></a-asset-item>
+            <a-asset-item id="pillar-obj" src="./BlenderModellen/Pillar.obj"></a-asset-item>
+            <a-asset-item id="pillar-mtl" src="./BlenderModellen/Pillar.mtl"></a-asset-item>
+            <a-asset-item id="muur-obj" src="./BlenderModellen/Muur.obj"></a-asset-item>
+            <a-asset-item id="muur-mtl" src="./BlenderModellen/Muur.mtl"></a-asset-item>
+            <a-asset-item id="lab-desk-obj" src="./BlenderModellen/Lab-Desk.obj"></a-asset-item>
+            <a-asset-item id="lab-desk-mtl" src="./BlenderModellen/Lab-Desk.mtl"></a-asset-item>
+            <a-asset-item id="sink-obj" src="./BlenderModellen/Sink.obj"></a-asset-item>
+            <a-asset-item id="sink-mtl" src="./BlenderModellen/Sink.mtl"></a-asset-item>
         </a-assets>
 
         <a-gltf-model src="#gasbrander-gltf" position="5 -0.3 -2" scale="2 2 2"></a-gltf-model>
@@ -57,24 +64,6 @@
             raycaster="objects: .js--interact"
             log="event: test;"></a-cursor>
         </a-camera>
-
-            <!-- <a-asset-item id="gloeilamp.mtl" src="./BlenderModellen/gloeilamp.mtl"></a-asset-item>
-            <a-asset-item id="pillar-obj" src="./BlenderModellen/Pillar.obj"></a-asset-item>
-            <a-asset-item id="pillar-mtl" src="./BlenderModellen/Pillar.mtl"></a-asset-item>
-            <a-asset-item id="muur-obj" src="./BlenderModellen/Muur.obj"></a-asset-item>
-            <a-asset-item id="muur-mtl" src="./BlenderModellen/Muur.mtl"></a-asset-item>
-            <a-asset-item id="lab-desk-obj" src="./BlenderModellen/Lab-Desk.obj"></a-asset-item>
-            <a-asset-item id="lab-desk-mtl" src="./BlenderModellen/Lab-Desk.mtl"></a-asset-item>
-            <a-asset-item id="sink-obj" src="./BlenderModellen/Sink.obj"></a-asset-item>
-            <a-asset-item id="sink-mtl" src="./BlenderModellen/Sink.mtl"></a-asset-item>
-            <a-asset-item id="gasbrander-obj" src="./BlenderModellen/gasbrander.obj"></a-asset-item>
-            <a-asset-item id="gasbrander-mtl" src="./BlenderModellen/gasbrander.mtl"></a-asset-item>
-        </a-assets> -->
-
-        <!-- <a-obj-model src="#microscope-obj" mtl="microscope.mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
-        <a-obj-model src="#klem-obj" mtl="klem.mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
-        <a-obj-model src="#gloeilamp-obj" mtl="gloeilamp.mtl" position="-3 1 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
-
 
         <!-- <a-obj-model src="#muur-obj" mtl="#muur-mtl" position="1 0 1"></a-obj-model> -->
 
@@ -120,8 +109,8 @@
 
 
         <!-- loop plekken -->
-        <a-box color="black" position="0 0.1 5" height="0.1"></a-box>
-        <a-box color="black" position="0 0.1 -4.5" height="0.1"></a-box>
+        <a-box moving class="js--place js--interact" color="black" position="0 0.1 5" height="0.1"></a-box>
+        <a-box moving class="js--place js--interact" color="black" position="0 0.1 -4.5" height="0.1"></a-box>
 
         <!-- tafels linker kant -->
         <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-6.5 0 -0.5" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
