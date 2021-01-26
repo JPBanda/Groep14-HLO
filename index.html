@@ -5,10 +5,14 @@
     <title>Vr-Doors</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src='main.js'></script>
     <script src='hint.js'></script>
+    <script src='collectible.js'></script>3
+    <script src="moving.js"></script>
+    <script src="pickup.js"></script>
 </head>
 <body>
-    <a-scene>
+    <a-scene id="js--scene">
 
 
         <!-- <a-camera id="js--camera" wasd-controls="acceleration: 200" position="0.5 1.5 1">
@@ -23,20 +27,38 @@
             raycaster="objects: .js--interact"></a-entity>
         </a-camera> -->
 
-        <a-entity environment="preset:forest;"></a-entity>
 
-        <a-assets>
-            <!-- <a-asset-item id="microscope-obj" src="microscope.obj"></a-asset-item>
+        <!-- <a-assets>
+            <a-asset-item id="microscope-obj" src="microscope.obj"></a-asset-item>
             <a-asset-item id="microscope.mtl" src="microscope.mtl"></a-asset-item>
             <a-asset-item id="klem-obj" src="Klem.obj"></a-asset-item>
-            <a-asset-item id="klem.mtl" src="Klem.mtl"></a-asset-item> -->
+            <a-asset-item id="klem.mtl" src="Klem.mtl"></a-asset-item>
             <a-asset-item id="gloeilamp-obj" src="gloeilamp.obj"></a-asset-item>
             <a-asset-item id="gloeilamp.mtl" src="gloeilamp.mtl"></a-asset-item>
         </a-assets>
 
-        <!-- <a-obj-model  src="#microscope-obj" mtl="microscope.mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
-        <a-obj-model src="#klem-obj" mtl="klem.mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
-        <a-obj-model hint class='js--gloeilamp js--interact' src="#gloeilamp-obj" mtl="gloeilamp.mtl" position="-4 0.5 0" scale="0.09 0.09 0.09" log="event: test;"></a-obj-model>
+        <a-obj-model src="#microscope-obj" mtl="microscope.mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model src="#klem-obj" mtl="klem.mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model src="#gloeilamp-obj" mtl="gloeilamp.mtl" position="-3 1 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
+
+        <a-entity environment="preset:forest;"></a-entity>
+
+        <a-assets>
+            <a-asset-item id="microscope-obj" src="./BlenderModellen/microscope.obj"></a-asset-item>
+            <a-asset-item id="microscope-mtl" src="./BlenderModellen/microscope.mtl"></a-asset-item>
+            <a-asset-item id="klem-obj" src="./BlenderModellen/Klem.obj"></a-asset-item>
+            <a-asset-item id="klem-mtl" src="./BlenderModellen/Klem.mtl"></a-asset-item>
+            <a-asset-item id="gloeilamp-obj" src="./BlenderModellen/gloeilamp.obj"></a-asset-item>
+            <a-asset-item id="gloeilamp-mtl" src="./BlenderModellen/gloeilamp.mtl"></a-asset-item>
+            <a-asset-item id="gasbrander-obj" src="./BlenderModellen/gasbrander.obj"></a-asset-item>
+            <a-asset-item id="gasbrander-mtl" src="./BlenderModellen/gasbrander.mtl"></a-asset-item>
+        </a-assets>
+
+        <a-obj-model src="#gasbrander-obj" mtl="#gasbrander-mtl" position="5 0.5 -2" scale="1.5 1.5 1.5"></a-obj-model>
+        <a-obj-model class="js--interact" src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model hint class='js--gloeilamp js--interact' src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-4 0.5 0" scale="0.09 0.09 0.09" log="event: test;"></a-obj-model>
+        <a-obj-model collectible class="js--item js--col1 js--interact js--pickup" src="#microscope-obj" mtl="#microscope-mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <!-- <a-obj-model collectible class="js--item js--col2 js--interact" src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
 
 
         <a-camera id='js--camera' position='0 1.5 0' wasd-controls="acceleration: 150;">
@@ -74,13 +96,26 @@
         <a-box class="js--door" color="red" width="2" height="3" position="2 1 -4"></a-box>
         <a-box color="black" width="2" height="5" position="4 0 -4"></a-box>
 
-        <a-plane width="5" height="1" position="-4 1.5 0" rotation="0 90 0"></a-plane>
-        <a-text vlak class="js--hint-text" color="black" value="Hier komt de hint" align="center" position="-4 1.5 0" rotation="0 90 0"></a-text>
+        <!-- Hint text -->
+        <a-plane class="js--backdrop" width="5" height="1" position="-4 -10 0" rotation="0 90 0"></a-plane>
+        <a-text vlak class="js--hint-text" color="black" value="" align="center" position="-4 -10 0" rotation="0 90 0"></a-text>
 
+        <!-- Text to speech trigger -->
+        <a-box class="js--block js--interact" position="-4 0.5 3" width="0.5" height="0.5" depth="0.5"></a-box>
+
+        <!-- Bacteriën fetch -->
+        <!-- <a-plane class="js--extern" width="3" height="3" position="4 1.5 0"></a-plane> -->
+        <a-text class="js--extern-text" value="naam etc." position="4 0.5 0" rotation="0 -90 0"></a-text>
+
+
+        <a-box moving class="js--interact js--place" color="blue" position="0 0 10"></a-box>
+        <a-box moving class="js--interact js--place" color="blue" position="0 0 0"></a-box>
+
+        <a-cylinder pickup class="js--placeholder js--interact" color="red" radius="0.5" height="0.1" position="1 0 10"></a-cylinder>
 
     </a-scene>
 
-    <script src='main.js'></script>
+    
 
 </body>
 </html>

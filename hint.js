@@ -5,7 +5,6 @@ AFRAME.registerComponent('hint', {
 
     init: function () {
       const text = document.getElementsByClassName("js--hint-text")[0];
-      const vlak = document.querySelectorAll("[vlak]");
 
       this.showHint = function() {
         text.setAttribute('value', "Klik op een hendel om de deur te openen");
