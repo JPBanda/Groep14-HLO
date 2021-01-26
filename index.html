@@ -50,11 +50,10 @@
             <a-asset-item id="klem-mtl" src="./BlenderModellen/Klem.mtl"></a-asset-item>
             <a-asset-item id="gloeilamp-obj" src="./BlenderModellen/gloeilamp.obj"></a-asset-item>
             <a-asset-item id="gloeilamp-mtl" src="./BlenderModellen/gloeilamp.mtl"></a-asset-item>
-            <a-asset-item id="gasbrander-obj" src="./BlenderModellen/gasbrander.obj"></a-asset-item>
-            <a-asset-item id="gasbrander-mtl" src="./BlenderModellen/gasbrander.mtl"></a-asset-item>
+            <a-asset-item id="gasbrander-gltf" src="./BlenderModellen/gasbrander.gltf"></a-asset-item>
         </a-assets>
 
-        <a-obj-model src="#gasbrander-obj" mtl="#gasbrander-mtl" position="5 0.5 -2" scale="1.5 1.5 1.5"></a-obj-model>
+        <a-gltf-model src="#gasbrander-gltf" position="5 -0.3 -2" scale="2 2 2"></a-gltf-model>
         <a-obj-model class="js--interact" src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
         <a-obj-model hint class='js--gloeilamp js--interact' src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-4 0.5 0" scale="0.09 0.09 0.09" log="event: test;"></a-obj-model>
         <a-obj-model collectible class="js--item js--col1 js--interact js--pickup" src="#microscope-obj" mtl="#microscope-mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
