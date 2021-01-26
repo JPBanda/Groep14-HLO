@@ -18,10 +18,10 @@ window.onload = () => {
 
     for (let i = 0; i < buttons.length; i++){
         buttons[i].addEventListener('click', function(evt){
-            ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[i].getAttribute('position').x + " -1.6 " + doors[i].getAttribute('position').z;
+            ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[i].getAttribute('position').x + " -4.6 " + doors[i].getAttribute('position').z;
             doors[i].setAttribute('animation', ani.value);
     
-            bani.value = 'property: rotation; easing: linear; dur: 1000; to: 135 0 0';
+            bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 0 -45';
             buttons[i].setAttribute('animation', bani.value);
         });
     } 
@@ -40,13 +40,13 @@ window.onload = () => {
     });
     
 
-    fetch('https://api.gbif.org/v1/species/7380886')
-                .then(response => response.json())
-                .then(data => console.log(data));
+    // fetch('https://api.gbif.org/v1/species/7380886')
+    //             .then(response => response.json())
+    //             .then(data => console.log(data));
 
-    fetch('https://api.gbif.org/v1/species/7380886')
-                .then(response => response.json())
-                .then(data => text_extern.setAttribute('value', "Naam: " + data.canonicalName + "\n" + "Soort: " + data.kingdom));
+    // fetch('https://api.gbif.org/v1/species/7380886')
+    //             .then(response => response.json())
+    //             .then(data => text_extern.setAttribute('value', "Naam: " + data.canonicalName + "\n" + "Soort: " + data.kingdom));
 
     // Google search op images moet nog wel verbeterd worden aangezien hij moeilijke querries niet pakt
     // fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyCEZPBtiVPhBdLpa0aDoJ1p1Bz3rwxf3pc&cx=ba3a73fb539676d10&q=Netherlands - Country+image")
