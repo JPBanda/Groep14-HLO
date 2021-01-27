@@ -11,6 +11,12 @@ window.onload = () => {
     const plaatje = document.getElementsByClassName("js--extern")[0];
     const text_extern = document.getElementsByClassName("js--extern-text")[0];
 
+    const camera = document.getElementById('js--camera');
+    let scene = document.getElementById('js--scene');
+    let pickups = document.getElementsByClassName('js--pickup');
+    const placeholders = document.getElementsByClassName('js--placeholder');
+    let hold = null;
+
     let synth = window.speechSynthesis;
     let utter = new SpeechSynthesisUtterance();
     utter.lang = 'nl-NL';
@@ -34,19 +40,19 @@ window.onload = () => {
     });
 
 
-    block.addEventListener("click", () => {
-        utter.text = text.getAttribute('value');
-        synth.speak(utter);
-    });
+    // block.addEventListener("click", () => {
+    //     utter.text = text.getAttribute('value');
+    //     synth.speak(utter);
+    // });
     
 
-    fetch('https://api.gbif.org/v1/species/7380886')
-                .then(response => response.json())
-                .then(data => console.log(data));
+    // fetch('https://api.gbif.org/v1/species/7380886')
+    //             .then(response => response.json())
+    //             .then(data => console.log(data));
 
-    fetch('https://api.gbif.org/v1/species/7380886')
-                .then(response => response.json())
-                .then(data => text_extern.setAttribute('value', "Naam: " + data.canonicalName + "\n" + "Soort: " + data.kingdom));
+    // fetch('https://api.gbif.org/v1/species/7380886')
+    //             .then(response => response.json())
+    //             .then(data => text_extern.setAttribute('value', "Naam: " + data.canonicalName + "\n" + "Soort: " + data.kingdom));
 
     // Google search op images moet nog wel verbeterd worden aangezien hij moeilijke querries niet pakt
     // fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyCEZPBtiVPhBdLpa0aDoJ1p1Bz3rwxf3pc&cx=ba3a73fb539676d10&q=Netherlands - Country+image")
@@ -54,7 +60,40 @@ window.onload = () => {
     //     .then(data => console.log(data));
 
     
+    function pickup() {
+        for (let i = 0; i < pickups.length; i++) {
+          pickups[i].addEventListener('click', function (evt) {
+            if (hold == null) {
+              camera.innerHTML += '<a-obj-model collectible id="js--hold" class="js--item js--col1 js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="1.2 -1 -1" scale="0.09 0.09 0.09"></a-obj-model>';
+              hold = "box";
+              this.remove();
+            }
+          });
+        }
+      }
+    
+      pickup();
+    
+      for (let i = 0; i < placeholders.length; i++) {
+        placeholders[i].addEventListener('click', function (evt) {
+          if (hold == "box") {
+            let box = document.createElement('a-obj-model');
+            box.setAttribute("class", "js--pickup js--item js--col1 js--interact");
+            box.setAttribute("src", "#microscope-obj")
+            box.setAttribute("mtl", "#microscope-mtl")
+            box.setAttribute("scale", "0.09 0.09 0.09")
+            box.setAttribute("position", {x: this.getAttribute('position').x, y:"0", z: 
+            this.getAttribute('position').z});
+            scene.appendChild(box);
+            document.getElementById('js--hold').remove();
+            pickup();
+            hold = null;
+          }
+        });
+      }
 }
+
+
 
 
 
