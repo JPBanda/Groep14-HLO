@@ -1,74 +1,150 @@
-// AFRAME.registerComponent('pickup', {
-//     schema: {
+AFRAME.registerComponent("pickup", {
+  schema: {},
 
-//     },
+  init: function () {
+    const camera = document.getElementById("js--camera");
+    let scene = document.getElementById("js--scene");
+    const microscope = document.getElementById("microscope");
+    const gasbrander = document.getElementById("gasbrander");
+    const preparaat = document.getElementById("preparaat");
+    const microscope_place = document.getElementById("microscope_place");
+    const gasbrander_place = document.getElementById("gasbrander_place");
+    const prep_place = document.getElementById("preparaat_place");
+    let holdms = null;
+    let holdgb = null;
+    let holdprep = null;
+    const door = document.getElementsByClassName("js--door");
+    let ani = document.createAttribute("animation");
+    let holdms_placed = false;
+    let holdgb_placed = false;
+    let holdprep_placed = false;
 
-//     init: function () {
-//         const pickup = document.getElementsByClassName("js--pickup");
-//         const camera = document.getElementById("js--camera");
-//         const placeholder = document.getElementsByClassName("js--placeholder");
-//         let scene = document.getElementById('js--scene')
-//         let hold = null;
-//         let placed = null;
+    this.pickup_ms = function () {
+      microscope.addEventListener("click", function (evt) {
+        if (holdms == null && document.getElementById("microscope")) {
+          camera.innerHTML +=
+            '<a-obj-model collectible id="js--hold" class="js--item js--col1 js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="1.2 -1 -1" scale="0.09 0.09 0.09"></a-obj-model>';
+          holdms = "item";
+          document.getElementById("microscope").remove();
+        }
+      });
+    };
 
-//         this.pickup = function () {
-//             for (let i = 0; i < pickup.length; i++) {
-//                 pickup[i].addEventListener('mouseenter', function (evt) {
-//                     let box;
-//                     if (hold == null && placed == null) {
-//                         camera.innerHTML += '<a-obj-model collectible id="js--hold" class="js--item js--col1 js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="1.2 -1 -1" scale="0.09 0.09 0.09"></a-obj-model>'
-//                         hold = "item";
-//                         this.remove();
-//                     }
+    this.pickup_gb = function () {
+      gasbrander.addEventListener("click", function (evt) {
+        if (holdgb == null && document.getElementById("gasbrander")) {
+          camera.innerHTML +=
+            '<a-gltf-model id="js--gasbrander" src="#gasbrander-gltf" position="1.2 -1 -1" scale="1.2 1.2 1.2"></a-gltf-model>';
+          holdgb = "hold";
+          document.getElementById("gasbrander").remove();
+        }
+      });
+    };
 
-//                     if (placed == "itemPlaced" && hold == null) {
-//                         camera.innerHTML += '<a-obj-model collectible id="js--hold" class="js--item js--col1 js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="1.2 -1 -1" scale="0.09 0.09 0.09"></a-obj-model>'
-//                         hold = "placed";
-//                         placed = null;
-                        
-//                     }
-//                 });
-//             }
-//         }
+    this.pickup_prep = function () {
+      preparaat.addEventListener("click", function (evt) {
+        if (holdprep == null && document.getElementById("preparaat")) {
+          camera.innerHTML +=
+            '<a-gltf-model id="js--prep" class="js--interact" src="#preparaat-gltf" position="0.8 -0.5 -0.6" scale="0.04 0.04 0.04"></a-gltf-model>';
+          holdprep = "prep";
+          document.getElementById("preparaat").remove();
+        }
+      });
+    };
 
-//         this.putDown = function () {
-//             for (let i=0; i<placeholder.length; i++) {
-//                 placeholder[i].addEventListener('mouseenter', function(evt){
-//                     if (hold == "item" && placed == null) {
-//                         let box = document.createElement('a-obj-model');
-//                         // box.setAttribute("id", "js--placed")
-//                         box.setAttribute("class", "js--pickup js--item js--col1 js--interact");
-//                         box.setAttribute("src", "#microscope-obj")
-//                         box.setAttribute("mtl", "#microscope-mtl")
-//                         box.setAttribute("scale", "0.09 0.09 0.09")
-//                         box.setAttribute("position", {x: this.getAttribute('position').x, y:"0", z: 
-//                         this.getAttribute('position').z});
-//                         scene.appendChild(box);
-//                         hold = null;
-//                         placed = "itemPlaced"
-//                         document.getElementById('js--hold').remove();
-//                     } 
-//                 });
-//             }
-//         }
+    this.putdown_ms = function () {
+      microscope_place.addEventListener("click", function (evt) {
+        if (holdms == "item" && document.getElementById("js--hold")) {
+          let microscope = document.createElement("a-obj-model");
+          microscope.setAttribute(
+            "class",
+            "js--pickup js--item js--col1 js--interact"
+          );
+          microscope.setAttribute("src", "#microscope-obj");
+          microscope.setAttribute("mtl", "#microscope-mtl");
+          microscope.setAttribute("scale", "0.09 0.09 0.09");
+          microscope.setAttribute("position", {
+            x: this.getAttribute("position").x,
+            y: "1.1",
+            z: this.getAttribute("position").z,
+          });
+          scene.appendChild(microscope);
+          document.getElementById("js--hold").remove();
+          holdms_placed == true;
+        }
+      });
+    };
 
-        
-//         this.el.addEventListener("mouseenter", this.pickup);
-//         this.el.addEventListener("mouseenter", this.putDown);
-        
-        
-//     },
+    this.putdown_gb = function () {
+      gasbrander_place.addEventListener("click", function (evt) {
+        if (holdgb == "hold" && document.getElementById("js--gasbrander")) {
+          let gasbrander = document.createElement("a-gltf-model");
+          gasbrander.setAttribute("class", "js--pickup js--interact");
+          gasbrander.setAttribute("src", "#gasbrander-gltf");
+          gasbrander.setAttribute("scale", "1.2 1.2 1.2");
+          gasbrander.setAttribute("position", {
+            x: this.getAttribute("position").x,
+            y: "0.9",
+            z: this.getAttribute("position").z,
+          });
+          scene.appendChild(gasbrander);
+          document.getElementById("js--gasbrander").remove();
+          holdgb_placed == true;
+        }
+      });
+    };
 
-//     update: function () {
-//         this.pickup();
-//         this.putDown();
-//     },
+    this.putdown_prep = function () {
+      prep_place.addEventListener("click", function (evt) {
+        if (holdprep == "prep" && document.getElementById("js--prep")) {
+          let prep = document.createElement("a-gltf-model");
+          prep.setAttribute("class", "js--pickup js--interact");
+          prep.setAttribute("src", "#preparaat-gltf");
+          prep.setAttribute("scale", "0.04 0.04 0.04");
+          prep.setAttribute("position", {
+            x: this.getAttribute("position").x,
+            y: "1.05",
+            z: this.getAttribute("position").z,
+          });
+          scene.appendChild(prep);
+          document.getElementById("js--prep").remove();
+          holdprep_placed == true;
+        }
+      });
+    };
 
-//     remove: function () {
-//         // Do something the component or its entity is detached.
-//     },
+    this.doorUnlock = function () {
+        if (holdms_placed == true && holdgb_placed == true && holdprep_placed == true) {
+            console.log("goed");
+          ani.value = 'property: position; easing: linear; dur: 5000; to:' + door.getAttribute('position').x + " -4.6 " + door.getAttribute('position').z;
+          door.setAttribute('animation', ani.value);
+        }
+      };
 
-//     tick: function (time, timeDelta) {
-//         // Do something on every scene tick or frame.
-//     }
-// });
+
+    this.el.addEventListener("click", this.pickup_ms);
+    this.el.addEventListener("click", this.putdown_ms);
+    this.el.addEventListener("click", this.pickup_gb);
+    this.el.addEventListener("click", this.putdown_gb);
+    this.el.addEventListener("click", this.pickup_prep);
+    this.el.addEventListener("click", this.putdown_prep);
+  },
+
+  update: function () {
+    this.pickup_ms();
+    this.putdown_ms();
+    this.pickup_gb();
+    this.putdown_gb();
+    this.pickup_prep();
+    this.putdown_prep();
+    this.doorUnlock();
+  },
+
+  remove: function () {
+    // Do something the component or its entity is detached.
+  },
+
+  tick: function (time, timeDelta) {
+    // Do something on every scene tick or frame.
+  },
+});
