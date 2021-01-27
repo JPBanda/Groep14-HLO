@@ -21,9 +21,14 @@ window.onload = () => {
             bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 0 -45';
             buttons[i].setAttribute('animation', bani.value);
 
-            if(i == 2){
+            if(i == 1){
                 ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[0].getAttribute('position').x + " -4.6 " + doors[0].getAttribute('position').z;
                 doors[0].setAttribute('animation', ani.value);
+            }
+
+            if(i == 0 || i == 2){
+                ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[1].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
+                doors[1].setAttribute('animation', ani.value);
             }
         });
     } 
