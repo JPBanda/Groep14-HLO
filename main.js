@@ -18,11 +18,13 @@ window.onload = () => {
 
     for (let i = 0; i < buttons.length; i++){
         buttons[i].addEventListener('click', function(evt){
-            ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[i].getAttribute('position').x + " -4.6 " + doors[i].getAttribute('position').z;
-            doors[i].setAttribute('animation', ani.value);
-    
             bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 0 -45';
             buttons[i].setAttribute('animation', bani.value);
+
+            if(i == 2){
+                ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[0].getAttribute('position').x + " -4.6 " + doors[0].getAttribute('position').z;
+                doors[0].setAttribute('animation', ani.value);
+            }
         });
     } 
 
