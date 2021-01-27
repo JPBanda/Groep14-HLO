@@ -11,11 +11,11 @@ AFRAME.registerComponent('hint', {
         for (let i = 0; i < hint_lamp.length; i++)
           hint_lamp[i].addEventListener("click", (evt) => {
             if(i == 0){
-              text[i].setAttribute('value', "Kijk nog eens goed naar de kleur en probeer het opnieuw");
+              text[i].setAttribute('value', "Kijk nog eens goed naar de kleur en probeer het opnieuw.");
               }
 
             if(i == 1){
-              text[i].setAttribute('value', "Kijk nog eens goed naar de vorm van het voorbeeld en probeer het opnieuw");
+              text[i].setAttribute('value', "Kijk nog eens goed naar de vorm van het voorbeeld.");
             }
             });
         }

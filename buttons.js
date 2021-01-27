@@ -26,12 +26,12 @@ AFRAME.registerComponent('button', {
 
                     // Goede antwoorden
                     if(i == 1){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[1].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
-                        doors[1].setAttribute('animation', ani.value);
+                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[0].getAttribute('position').x + " -4.6 " + doors[0].getAttribute('position').z;
+                        doors[0].setAttribute('animation', ani.value);
                     }
                     if (i == 3){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
-                        doors[2].setAttribute('animation', ani.value);
+                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[1].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
+                        doors[1].setAttribute('animation', ani.value);
                     }
 
                     // Antwoorden die er totaal niet bij horen
