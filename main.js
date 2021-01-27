@@ -1,50 +1,31 @@
 window.onload = () => {
     const cursor = document.getElementById("js--cursor");
-    const doors = document.getElementsByClassName("js--door");
-    const buttons = document.getElementsByClassName("js--button");
-    const hint_lamp = document.getElementsByClassName("js--gloeilamp")[0];
     const block = document.getElementsByClassName("js--block")[0];
-    let ani = document.createAttribute('animation');
-    let bani = document.createAttribute('animation');
-    const text = document.getElementsByClassName("js--hint-text")[0];
+    const text = document.getElementsByClassName("js--hint-text");
     const backdrop = document.getElementsByClassName("js--backdrop")[0];
     const plaatje = document.getElementsByClassName("js--extern")[0];
     const text_extern = document.getElementsByClassName("js--extern-text")[0];
 
-    let synth = window.speechSynthesis;
-    let utter = new SpeechSynthesisUtterance();
-    utter.lang = 'nl-NL';
-    utter.volume = 0.5;
+    // let synth = window.speechSynthesis;
+    // let utter = new SpeechSynthesisUtterance();
+    // utter.lang = 'nl-NL';
 
-    for (let i = 0; i < buttons.length; i++){
-        buttons[i].addEventListener('click', function(evt){
-            bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 0 -45';
-            buttons[i].setAttribute('animation', bani.value);
-
-            if(i == 1){
-                ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[0].getAttribute('position').x + " -4.6 " + doors[0].getAttribute('position').z;
-                doors[0].setAttribute('animation', ani.value);
-            }
-
-            if(i == 0 || i == 2){
-                ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[1].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
-                doors[1].setAttribute('animation', ani.value);
-            }
-        });
-    } 
+    
 
 
-    hint_lamp.addEventListener("click", () => {
-        hint_lamp.emit("test");
-        backdrop.setAttribute("position", "-4 1.5 0");
-        text.setAttribute("position", "-4 1.5 0");
-    });
+    // hint_lamp.addEventListener("click", (evt) => {
+    //     hint_lamp.emit("test");
+    // });
 
 
-    block.addEventListener("click", () => {
-        utter.text = text.getAttribute('value');
-        synth.speak(utter);
-    });
+    // block.addEventListener("click", (evt) => {
+    //     for (let i = 0; i < text.length; i++){
+    //         utter.text = text[i].getAttribute('value');
+    //         synth.speak(utter);
+    //         console.log("event listener werkt")
+    //     }
+    // });
+        
     
 
     // fetch('https://api.gbif.org/v1/species/7380886')
