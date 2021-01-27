@@ -5,6 +5,9 @@
     <title>Vr-Omgeving</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src='hint.js'></script>
+    <script src='buttons.js'></script>
+    <!-- <script src='collectible.js'></script> -->
 </head>
 <body>
     <a-scene>
@@ -18,7 +21,8 @@
             cursor='fuse: true; fuseTimeout: 2000' 
             geometry="primitive: ring; radiusInner: 0.007; radiusOuter: 0.01" 
             position="0 0 -0.5" 
-            raycaster="objects: .js--interact"></a-cursor>
+            raycaster="objects: .js--interact"
+            log="event: test;"></a-cursor>
         </a-camera>
 
         <a-assets>
@@ -37,13 +41,7 @@
             <a-asset-item id="sink-obj" src="./BlenderModellen/Sink.gltf"></a-asset-item>
             <a-asset-item id="sink-mtl" src="./BlenderModellen/Sink.mtl"></a-asset-item>
         </a-assets>
-
-        <!-- <a-obj-model src="#microscope-obj" mtl="microscope.mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
-        <a-obj-model src="#klem-obj" mtl="klem.mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
-        <a-obj-model src="#gloeilamp-obj" mtl="gloeilamp.mtl" position="-3 1 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
-
-        <!-- <a-obj-model src="#muur-obj" mtl="#muur-mtl" position="1 0 1"></a-obj-model> -->
-
+            
         <!-- loop plekken -->
         <a-box color="black" position="0 0.1 5" height="0.1"></a-box>
         <a-box color="black" position="0 0.1 -4.5" height="0.1"></a-box>
@@ -123,9 +121,369 @@
         <a-plane color="darkorange" width="18" height="12" position="0 -0.1 -5" rotation="-90 0 0"></a-plane>
         <a-plane color="gold" width="4" height="0.2" position="0 -0.09 0.9" rotation="-90 0 0"></a-plane>
 
-        <!-- <a-entity environment="preset:forest;"></a-entity> -->
+        <!-- <a-obj-model src="#gasbrander-obj" mtl="#gasbrander-mtl" position="5 0.5 -2" scale="1.5 1.5 1.5"></a-obj-model>
+        <a-obj-model src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
+        <a-obj-model hint class='js--gloeilamp js--interact' src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-4 0.5 0" scale="0.09 0.09 0.09" log="event: test;"></a-obj-model>
+        <a-obj-model collectible class="js--item js--col1 js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="0 0 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
+        <!-- <a-obj-model collectible class="js--item js--col2 js--interact" src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model> -->
+
+        <!-- Kamer 1 -->
+
+        <!-- levers -->
+        <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-15 0.8 -1.5" rotation="90 0 0">
+           <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+        </a-box>
+        <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-13 0.8 -1.5" rotation="90 0 0">
+            <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+         </a-box>
+         <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-11 0.8 -1.5" rotation="90 0 0">
+            <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+         </a-box>
+
+        <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-15 1 -1.5" rotation="0 90 45">
+            <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+        </a-box>
+        <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-13 1 -1.5" rotation="0 90 45">
+            <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+        </a-box>
+        <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-11 1 -1.5" rotation="0 90 45">
+            <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+        </a-box>
+
+        <!-- Antwoorden -->
+        <a-text color="black" value="Gram positief" align="center" position="-15 0.5 -2" rotation="0 180 0"></a-text>
+        <a-text color="black" value="Gram negatief" align="center" position="-13 0.5 -2" rotation="0 180 0"></a-text>
+        <a-text color="black" value="Gram neutraal" align="center" position="-11 0.5 -2" rotation="0 180 0"></a-text>
+
+        <a-box width="1" depth="1.5" height="1" position="-15 0.25 -1.5" rotation="0 90 90"></a-box>
+        <a-box width="1" depth="1.5" height="1" position="-13 0.25 -1.5" rotation="0 90 90"></a-box>
+        <a-box width="1" depth="1.5" height="1" position="-11 0.25 -1.5" rotation="0 90 90"></a-box>
+
+        <!-- Vraag -->
+        <a-text color="black" value="Welke gramkleuring is hier te zien?" align="center" position="-13 3.5 0.3" rotation="0 180 0" width="5"></a-text>
+        <a-image src="./img/Gramkleuring_negatief.png" position="-13 2 0.3" rotation="0 180 0" scale="2 2 2"></a-image>
+        
+        <!-- Omgeving -->
+
+        <!-- Achter -->
+        <!-- <a-box color="grey" depth="0.2" width="2" height="2.4" position="-9 1.2 -0.5" rotation="0 90 0"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-9 1.2 -2.5" rotation="0 90 0"></a-box>
+        <a-box class="js--door" color="red" depth="0.2" width="2" height="2.4" position="-9 1.2 -4.5" rotation="0 90 0"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-9 1.2 -6.5" rotation="0 90 0"></a-box> -->
+
+        <!-- Voor -->
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -0.5" rotation="0 90 0"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -2.5" rotation="0 90 0"></a-box>
+        <a-box class="js--door" color="red" depth="0.2" width="2" height="2.4" position="-17 1.2 -4.5" rotation="0 90 0"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -6.5" rotation="0 90 0"></a-box>
+
+        <!-- Rechts -->
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-10 1.2 -7.5"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-12 1.2 -7.5"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-14 1.2 -7.5"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-16 1.2 -7.5"></a-box>
+
+        <!-- links -->
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-10 1.2 0.5"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-12 1.2 0.5"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-14 1.2 0.5"></a-box>
+        <a-box color="grey" depth="0.2" width="2" height="2.4" position="-16 1.2 0.5"></a-box>
+
+        <!--- Floor -->
+        <a-plane color="darkorange" rotation="-90 0 0" position="-13 0.1 -3.5" width="8" height="8"></a-plane>
+        <a-box color="black" height="0.1" width="1" depth="1" position="-13 0.1 -4.5"></a-box>
+
+
+        <!-- Hint -->
+        <a-plane width="5" height="1" position="-13 1.5 -7.3"></a-plane>
+        <a-text class="js--hint-text" color="black" value="" align="center" position="-13 1.5 -7.2" width="4"></a-text>
+        <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-12.5 0.75 -7" scale="0.1 0.1 0.1"></a-obj-model>
+
+        <!-- Text to speech trigger -->
+        <a-box class="js--block js--interact" position="-13.5 0.75 -7" width="0.25" height="0.25" depth="0.25"></a-box>
+
+        <!-- Bacteriën fetch -->
+        <!-- <a-plane class="js--extern" width="3" height="3" position="4 1.5 0"></a-plane> -->
+        <!-- <a-text class="js--extern-text" value="naam etc." position="4 0.5 0" rotation="0 -90 0"></a-text> -->
+
+
+        <!-- Kamer 2 -->
+
+        <!-- levers -->
+        <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-23 0.8 -1.5" rotation="90 0 0">
+            <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+         </a-box>
+         <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-21 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+          <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-19 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+ 
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-23 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-21 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-19 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+ 
+         <!-- Antwoorden -->
+         <a-text color="black" value="Kokken" align="center" position="-23 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Spirillen" align="center" position="-21 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Bacillen" align="center" position="-19 0.5 -2" rotation="0 180 0"></a-text>
+ 
+         <a-box width="1" depth="1.5" height="1" position="-23 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-21 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-19 0.25 -1.5" rotation="0 90 90"></a-box>
+ 
+         <!-- Vraag -->
+         <a-text color="black" value="Als we iets verder inzoomen zien we dit. Welke bacterie vorm is dit?" align="center" position="-21 3.5 0.3" rotation="0 180 0" width="5"></a-text>
+         <a-sphere color="#E9118F" position="-21 2 0.3" radius="0.3"></a-sphere>
+         <a-sphere color="#E9118F" position="-20.5 2 0.3" radius="0.3"></a-sphere>
+         <a-sphere color="#E9118F" position="-20.75 2.5 0.3" radius="0.3"></a-sphere>
+         <a-sphere color="#E9118F" position="-21.25 2.5 0.3" radius="0.3"></a-sphere>
+         
+         <!-- Omgeving -->
+ 
+         <!-- Achter -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -0.5" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -2.5" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -6.5" rotation="0 90 0"></a-box>
+ 
+         <!-- Voor -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -0.5" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -2.5" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -4.5" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -6.5" rotation="0 90 0"></a-box>
+ 
+         <!-- Rechts -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-18 1.2 -7.5"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-19 1.2 -7.5"></a-box>
+         <a-box class="js--door" color="red" depth="0.2" width="2" height="2.4" position="-21 1.2 -7.5"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-23 1.2 -7.5"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-24 1.2 -7.5"></a-box>
+ 
+         <!-- links -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-18 1.2 0.5"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-20 1.2 0.5"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-22 1.2 0.5"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-24 1.2 0.5"></a-box>
+ 
+         <!--- Floor -->
+         <a-plane color="darkorange" rotation="-90 0 0" position="-21 0.1 -3.5" width="8" height="8"></a-plane>
+         <a-box color="black" height="0.1" width="1" depth="1" position="-21 0.1 -4.5"></a-box>
+ 
+         <!-- Hint -->
+        <a-plane width="5" height="1" position="-24.8 1.5 -3.5" rotation="0 90 0"></a-plane>
+        <a-text class="js--hint-text" color="black" value="" align="center" position="-24.8 1.5 -3.5" rotation="0 90 0" width="4"></a-text>
+        <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-24.5 0.75 -4" scale="0.1 0.1 0.1"></a-obj-model>
+
+        <!-- Text to speech trigger -->
+        <a-box class="js--block js--interact" position="-24.5 0.75 -3" width="0.25" height="0.25" depth="0.25"></a-box>
+         
+ 
+         <!-- Bacteriën fetch -->
+         <!-- <a-plane class="js--extern" width="3" height="3" position="4 1.5 0"></a-plane> -->
+         <!-- <a-text class="js--extern-text" value="naam etc." position="4 0.5 0" rotation="0 -90 0"></a-text> -->
+
+         <!-- Tussen weg -->
+
+         <a-box color="grey" depth="0.2" width="3.125" height="2.4" position="-19 1.2 -9.15" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="3.125" height="2.4" position="-23 1.2 -9.15" rotation="0 90 0"></a-box>
+         <a-plane color="darkorange" rotation="-90 0 0" position="-21 0.1 -9.15" width="4" height="4"></a-plane>
+
+        <!-- Kamer 3 -->
+
+        <!-- levers -->
+        <!-- <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-15 0.8 -1.5" rotation="90 0 0">
+            <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+         </a-box>
+         <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-13 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+          <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-11 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+ 
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-15 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-13 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-11 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box> -->
+ 
+         <!-- Antwoorden -->
+         <!-- <a-text color="black" value="Gram positief" align="center" position="-15 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Gram negatief" align="center" position="-13 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Gram neutraal" align="center" position="-11 0.5 -2" rotation="0 180 0"></a-text>
+ 
+         <a-box width="1" depth="1.5" height="1" position="-15 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-13 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-11 0.25 -1.5" rotation="0 90 90"></a-box> -->
+ 
+         <!-- Vraag -->
+         <!-- <a-text color="black" value="Welke gramkleuring is hier te zien?" align="center" position="-13 3.5 0.3" rotation="0 180 0" width="5"></a-text>
+         <a-image src="./img/Gramkleuring_negatief.png" position="-13 2 0.3" rotation="0 180 0" scale="2 2 2"></a-image> -->
+         
+         <!-- Omgeving -->
+  
+         <!-- Voor -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -11.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -13.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -15.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-25 1.2 -17.75" rotation="0 90 0"></a-box>
+ 
+         <!-- Rechts -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-18 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-20 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-22 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-24 1.2 -18.75"></a-box>
+ 
+         <!-- Links -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-18 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-19 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-23 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-24 1.2 -10.75"></a-box>
+ 
+         <!--- Floor -->
+         <a-plane color="darkorange" rotation="-90 0 0" position="-21 0.1 -14.75" width="8" height="8"></a-plane>
+         <a-box color="black" height="0.1" width="1" depth="1" position="-21 0.1 -14.75"></a-box>
+        
+        <!-- Kamer 4 -->
+
+         <!-- levers -->
+        <!-- <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-15 0.8 -1.5" rotation="90 0 0">
+            <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+         </a-box>
+         <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-13 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+          <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-11 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+ 
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-15 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-13 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-11 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box> -->
+ 
+         <!-- Antwoorden -->
+         <!-- <a-text color="black" value="Gram positief" align="center" position="-15 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Gram negatief" align="center" position="-13 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Gram neutraal" align="center" position="-11 0.5 -2" rotation="0 180 0"></a-text>
+ 
+         <a-box width="1" depth="1.5" height="1" position="-15 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-13 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-11 0.25 -1.5" rotation="0 90 90"></a-box> -->
+ 
+         <!-- Vraag -->
+         <!-- <a-text color="black" value="Welke gramkleuring is hier te zien?" align="center" position="-13 3.5 0.3" rotation="0 180 0" width="5"></a-text>
+         <a-image src="./img/Gramkleuring_negatief.png" position="-13 2 0.3" rotation="0 180 0" scale="2 2 2"></a-image> -->
+         
+         <!-- Omgeving -->
+ 
+         <!-- Achter -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-9 1.2 -11.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-9 1.2 -12.75" rotation="0 90 0"></a-box>
+         <a-box class="js--door" color="red" depth="0.2" width="2" height="2.4" position="-9 1.2 -14.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="3" height="2.4" position="-9 1.2 -17.25" rotation="0 90 0"></a-box>
+ 
+         <!-- Voor -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -11.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-17 1.2 -12.75" rotation="0 90 0"></a-box>
+         <a-box class="js--door" color="red" depth="0.2" width="2" height="2.4" position="-17 1.2 -14.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="3" height="2.4" position="-17 1.2 -17.25" rotation="0 90 0"></a-box>
+ 
+         <!-- Rechts -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-10 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-12 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-14 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-16 1.2 -18.75"></a-box>
+ 
+         <!-- Links -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-10 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-12 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-14 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-16 1.2 -10.75"></a-box>
+ 
+         <!--- Floor -->
+         <a-plane color="darkorange" rotation="-90 0 0" position="-13 0.1 -14.75" width="8" height="8"></a-plane>
+         <a-box color="black" height="0.1" width="1" depth="1" position="-13 0.1 -14.75"></a-box>
+
+        <!-- Kamer 5 -->
+
+        <!-- levers -->
+        <!-- <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-15 0.8 -1.5" rotation="90 0 0">
+            <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+         </a-box>
+         <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-13 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+          <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-11 0.8 -1.5" rotation="90 0 0">
+             <a-plane color="black" width="0.1" height="0.4"></a-plane> 
+          </a-box>
+ 
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-15 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-13 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box>
+         <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-11 1 -1.5" rotation="0 90 45">
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
+         </a-box> -->
+ 
+         <!-- Antwoorden -->
+         <!-- <a-text color="black" value="Gram positief" align="center" position="-15 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Gram negatief" align="center" position="-13 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Gram neutraal" align="center" position="-11 0.5 -2" rotation="0 180 0"></a-text>
+ 
+         <a-box width="1" depth="1.5" height="1" position="-15 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-13 0.25 -1.5" rotation="0 90 90"></a-box>
+         <a-box width="1" depth="1.5" height="1" position="-11 0.25 -1.5" rotation="0 90 90"></a-box> -->
+ 
+         <!-- Vraag -->
+         <!-- <a-text color="black" value="Welke gramkleuring is hier te zien?" align="center" position="-13 3.5 0.3" rotation="0 180 0" width="5"></a-text>
+         <a-image src="./img/Gramkleuring_negatief.png" position="-13 2 0.3" rotation="0 180 0" scale="2 2 2"></a-image> -->
+         
+         <!-- Omgeving -->
+ 
+         <!-- Achter -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-1 1.2 -11.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-1 1.2 -13.75" rotation="0 90 0"></a-box>
+         <a-box class="js--door" color="red" depth="0.2" width="2" height="2.4" position="-1 1.2 -15.75" rotation="0 90 0"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-1 1.2 -17.75" rotation="0 90 0"></a-box>
+  
+         <!-- Rechts -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-2 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-4 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-6 1.2 -18.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-8 1.2 -18.75"></a-box>
+ 
+         <!-- Links -->
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-2 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-4 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-6 1.2 -10.75"></a-box>
+         <a-box color="grey" depth="0.2" width="2" height="2.4" position="-8 1.2 -10.75"></a-box>
+ 
+         <!--- Floor -->
+         <a-plane color="darkorange" rotation="-90 0 0" position="-5 0.1 -14.75" width="8" height="8"></a-plane>
+         <a-box color="black" height="0.1" width="1" depth="1" position="-5 0.1 -14.75"></a-box>
 
     </a-scene>
+
+    <script src='main.js'></script>
 
 </body>
 </html>
