@@ -13,7 +13,7 @@ AFRAME.registerComponent('button', {
         this.activateButton = function(){
             for (let i = 0; i < buttons.length; i++){
                 buttons[i].addEventListener('click', function(evt){
-                    bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 0 -45';
+                    bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 90 -45';
                     buttons[i].setAttribute('animation', bani.value);
         
                     // Foute antwoorden
@@ -21,12 +21,12 @@ AFRAME.registerComponent('button', {
                         text[0].setAttribute('value', "Dit is helaas het verkeerde antwoord, de kleur hier is roze niet blauw.");
                     }
                     if(i == 5){
-                        text[1].setAttribute('value', "Dit is helaas het verkeerde antwoord, de vorm van deze soort is staafvormig");
+                        text[1].setAttribute('value', "Dit is helaas het verkeerde antwoord, de vorm van deze soort is staafvormig.");
                     }
 
                     // Goede antwoorden
                     if(i == 1){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[0].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
+                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[1].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
                         doors[1].setAttribute('animation', ani.value);
                     }
                     if (i == 3){
@@ -39,7 +39,7 @@ AFRAME.registerComponent('button', {
                         text[0].setAttribute('value', "Gram neutraal is niet benoemd binnen dit onderwerp, tenzij je een zwart wit filter hebt.");
                     }
                     if(i == 4){
-                        text[1].setAttribute('value', "Als het goed is heb je dit nog niet behandeld, daarnaast hoe zie je hier een spiraal");
+                        text[1].setAttribute('value', "Als het goed is heb je dit nog niet behandeld, daarnaast hoe zie je hier een spiraal in?");
                     }
                 });
             } 
