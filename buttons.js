@@ -9,6 +9,7 @@ AFRAME.registerComponent('button', {
         const text = document.getElementsByClassName("js--hint-text");
         let ani = document.createAttribute('animation');
         let bani = document.createAttribute('animation');
+        console.log("in init")
       
         this.activateButton = function(){
             for (let i = 0; i < buttons.length; i++){

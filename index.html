@@ -7,6 +7,8 @@
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src='hint.js'></script>
     <script src='buttons.js'></script>
+    <script src="wjd.js"></script>
+    
 </head>
 <body>
     <a-scene>
@@ -498,6 +500,12 @@
          <a-box color="grey" depth="0.2" width="2" height="5" position="-4 1.1 -18.75"></a-box>
          <a-box color="grey" depth="0.2" width="2" height="5" position="-6 1.1 -18.75"></a-box>
          <a-box color="grey" depth="0.2" width="2" height="5" position="-8 1.1 -18.75"></a-box>
+
+         <a-box class="js--end js--interact" wjd color="lightblue" position="-3.5 0 -14.75" width="0.4" height="0.4" depth="0.4"></a-box>
+         <a-plane color="green" position="-1.5 1.1 -14.75" width="3" height="5" rotation="0 270 0"></a-plane>
+         <a-plane color="lightgreen" position="-1.51 1.1 -14.75" width="3" height="4.25" rotation="0 270 0"></a-plane>
+         <a-text align="center" fact color="white" value="UNDEFINED" rotation="0 270 0" position="-1.51 3.43 -14.75" ></a-text>
+         <a-text align="center" fact color="white" value="undefined" rotation="0 270 0" position="-1.51 1.9 -14.75" ></a-text>
  
          <!-- Links -->
          <!-- <a-box color="grey" depth="0.2" width="2" height="5" position="-2 1.1 -10.75"></a-box>
