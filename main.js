@@ -57,7 +57,7 @@ window.onload = () => {
                 box.setAttribute('class', 'js--antwoord_pickup js--a1 js--interact');
                 box.setAttribute('src', './img/Gramkleuring_positief.jpg'); 
                 if(evt.target == antwoord_holder[0]){
-                    text[2].setAttribute('value', "Deze is inderdaad asporogeen, want asporogeen heeft verkleurt niet.");
+                    text[2].setAttribute('value', "Deze is inderdaad asporogeen, want asporogeen heeft geen ander gekleurde sporen.");
                     ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
                     doors[2].setAttribute('animation', ani.value);
                 }  
