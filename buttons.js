@@ -18,10 +18,10 @@ AFRAME.registerComponent('button', {
         
                     // Foute antwoorden
                     if(i == 0){
-                        text[0].setAttribute('value', "Dit is helaas het verkeerde antwoord, de kleur hier is roze niet blauw.");
+                        text[0].setAttribute('value', "Dit is helaas het verkeerde antwoord, de kleur hier is blauwe niet roze.");
                     }
                     if(i == 5){
-                        text[1].setAttribute('value', "Dit is helaas het verkeerde antwoord, de vorm van deze soort is staafvormig.");
+                        text[1].setAttribute('value', "Dit is helaas het verkeerde antwoord, de vorm van deze soort is bolvormig.");
                     }
 
                     // Goede antwoorden

@@ -151,8 +151,8 @@
         </a-box>
 
         <!-- Antwoorden -->
-        <a-text color="black" value="Gram positief" align="center" position="-15 0.5 -2" rotation="0 180 0"></a-text>
-        <a-text color="black" value="Gram negatief" align="center" position="-13 0.5 -2" rotation="0 180 0"></a-text>
+        <a-text color="black" value="Gram negatief" align="center" position="-15 0.5 -2" rotation="0 180 0"></a-text>
+        <a-text color="black" value="Gram positief" align="center" position="-13 0.5 -2" rotation="0 180 0"></a-text>
         <a-text color="black" value="Gram neutraal" align="center" position="-11 0.5 -2" rotation="0 180 0"></a-text>
 
         <a-box width="1" depth="1.5" height="1" position="-15 0.25 -1.5" rotation="0 90 90"></a-box>
@@ -160,8 +160,8 @@
         <a-box width="1" depth="1.5" height="1" position="-11 0.25 -1.5" rotation="0 90 90"></a-box>
 
         <!-- Vraag -->
-        <a-text color="black" value="Welke gramkleuring is hier te zien?" align="center" position="-13 3.5 0.3" rotation="0 180 0" width="5"></a-text>
-        <a-image src="./img/Gramkleuring_negatief.png" position="-13 2 0.3" rotation="0 180 0" scale="2 2 2"></a-image>
+        <a-text color="black" value="Welke gramkleuring is hier te zien?" align="center" position="-13 3.25 0.3" rotation="0 180 0" width="5"></a-text>
+        <a-image src="./img/Gramkleuring_positief.jpg" position="-13 2 0.3" rotation="0 180 0" scale="2 2 2"></a-image>
         
         <!-- Omgeving -->
 
@@ -232,20 +232,28 @@
          </a-box>
  
          <!-- Antwoorden -->
-         <a-text color="black" value="Kokken" align="center" position="-23 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Bacillen" align="center" position="-23 0.5 -2" rotation="0 180 0"></a-text>
          <a-text color="black" value="Spirillen" align="center" position="-21 0.5 -2" rotation="0 180 0"></a-text>
-         <a-text color="black" value="Bacillen" align="center" position="-19 0.5 -2" rotation="0 180 0"></a-text>
+         <a-text color="black" value="Kokken" align="center" position="-19 0.5 -2" rotation="0 180 0"></a-text>
  
          <a-box width="1" depth="1.5" height="1" position="-23 0.25 -1.5" rotation="0 90 90"></a-box>
          <a-box width="1" depth="1.5" height="1" position="-21 0.25 -1.5" rotation="0 90 90"></a-box>
          <a-box width="1" depth="1.5" height="1" position="-19 0.25 -1.5" rotation="0 90 90"></a-box>
  
          <!-- Vraag -->
-         <a-text color="black" value="Als we iets verder inzoomen zien we dit. Welke bacterie vorm is dit?" align="center" position="-21 3.5 0.3" rotation="0 180 0" width="5"></a-text>
-         <a-sphere color="#E9118F" position="-21 2 0.3" radius="0.3"></a-sphere>
-         <a-sphere color="#E9118F" position="-20.5 2 0.3" radius="0.3"></a-sphere>
-         <a-sphere color="#E9118F" position="-20.75 2.5 0.3" radius="0.3"></a-sphere>
-         <a-sphere color="#E9118F" position="-21.15 2.5 0.3" radius="0.3"></a-sphere>
+         <a-text color="black" value="Als we iets verder inzoomen zien we dit. Welke bacterie vorm is dit?" align="center" position="-21 3.25 0.3" rotation="0 180 0" width="5"></a-text>
+         <a-sphere color="#374fa3" position="-20 1.5 0.3" radius="0.3"></a-sphere>
+         <a-cylinder color="#374fa3" position="-20 2 0.3" radius="0.3"></a-cylinder>
+         <a-sphere color="#374fa3" position="-20 2.5 0.3" radius="0.3"></a-sphere>
+         <a-sphere color="#374fa3" position="-20.5 1.5 0.3" radius="0.3"></a-sphere>
+         <a-cylinder color="#374fa3" position="-20.5 2 0.3" radius="0.3"></a-cylinder>
+         <a-sphere color="#374fa3" position="-20.5 2.5 0.3" radius="0.3"></a-sphere>
+         <a-sphere color="#374fa3" position="-21 1.5 0.3" radius="0.3"></a-sphere>
+         <a-cylinder color="#374fa3" position="-21 2 0.3" radius="0.3"></a-cylinder>
+         <a-sphere color="#374fa3" position="-21 2.5 0.3" radius="0.3"></a-sphere>
+         <a-cylinder color="#374fa3" position="-21.5 2 0.3" radius="0.3" rotation="0 0 45"></a-cylinder>
+         <a-sphere color="#374fa3" position="-21.9 2.4 0.3" radius="0.3" rotation="0 0 45"></a-sphere>
+         
          
          <!-- Omgeving -->
  
@@ -298,7 +306,7 @@
          <a-plane color="darkorange" rotation="-90 0 0" position="-21 -0.1 -9.15" width="4" height="4"></a-plane>
 
          <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="-21 2.75 -7.6" rotation="0 0 0">
-            <a-plane color="black" width="0.1" height="0.4"></a-plane> w
+            <a-plane color="black" width="0.1" height="0.4"></a-plane>
          </a-box>
         <a-box button class="js--secret_button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-21 2.75 -7.85" rotation="-45 0 0">
              <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
@@ -363,6 +371,14 @@
          <!--- Floor -->
          <a-plane color="darkorange" rotation="-90 0 0" position="-21 -0.1 -14.75" width="8" height="8"></a-plane>
          <a-box color="black" height="0.1" width="1" depth="1" position="-21 0.1 -14.75"></a-box>
+
+         <!-- Hint -->
+        <a-plane width="5" height="1" position="-24.8 1.5 -14.75" rotation="0 90 0"></a-plane>
+        <a-text class="js--hint-text" color="black" value="" align="center" position="-24.8 1.5 -14.75" rotation="0 90 0" width="4"></a-text>
+        <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-24.5 0.75 -15.25" scale="0.1 0.1 0.1"></a-obj-model>
+
+        <!-- Text to speech trigger -->
+        <a-box class="js--block js--interact" position="-24.5 0.75 -14.25" width="0.25" height="0.25" depth="0.25"></a-box>
         
         <!-- Kamer 4 -->
 
