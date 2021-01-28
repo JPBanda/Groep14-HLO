@@ -45,11 +45,35 @@ AFRAME.registerComponent('button', {
             } 
         }
 
+        const secret_button = document.getElementsByClassName("js--secret_button");
+        const secret_door = document.getElementsByClassName("js--secret_door");
+        let secret_bani = document.createAttribute('animation');
+        let secret_sound = new Audio("./Sounds/Secret_Sound.mp3");
+        secret_sound.volume = 0.02;
+
+
+        this.activateSecretButton = function(){
+            for (let i = 0; i < secret_button.length; i++){
+                secret_button[i].addEventListener('click', function(evt){
+                    secret_bani.value = 'property: rotation; easing: linear; dur: 1000; to: -135 0 0';
+                    secret_button[i].setAttribute('animation', secret_bani.value);
+        
+                    if(i == 0){
+                        secret_sound.play();
+                        secret_door[0].remove();
+                    }
+                });
+    
+            }
+        }
+
         this.el.addEventListener("click", this.activateButton);
+        this.el.addEventListener("click", this.activateSecretButton);
     },
 
     update: function () {
       this.activateButton();
+      this.activateSecretButton();
     },
 
     remove: function () {
