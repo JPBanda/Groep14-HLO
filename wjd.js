@@ -10,14 +10,15 @@ AFRAME.registerComponent('wjd', {
         
 
         this.anwser = function(){
-            for(let i = 0; i < box.length; i++){
                 fetch(BASE_URL + "8018537")
                 .then(response => response.json())
                 .then(data => fact[0].setAttribute('value', "Naam: " + data.canonicalName));
-                //.then(data)
-                console.log("in this.answer")
+                fetch(BASE_URL + "8018537")
+                .then(response => response.json())
+                .then(data => fact[1].setAttribute('value', "Rijk: " + data.kingdom + "\n Afdeling: " + data.phylum + "\n Orde: " + data.order + "\n Familie: " + data.family ));
+                console.log("in this.answer");
               
-            }
+            
         }
 
         //fetch('https://api.gbif.org/v1/species/8018537')
