@@ -27,13 +27,13 @@ AFRAME.registerComponent('button', {
 
                     // Goede antwoorden
                     if(i == 1){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[0].getAttribute('position').x + " -4.6 " + doors[0].getAttribute('position').z;
-                        doors[0].setAttribute('animation', ani.value);
+                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
+                        doors[2].setAttribute('animation', ani.value);
                         text[0].setAttribute('value', "Dit is het juiste antwoord, de kleur is namelijk bij gram positief blauw.");
                     }
                     if (i == 5){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[1].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
-                        doors[1].setAttribute('animation', ani.value);
+                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[3].getAttribute('position').x + " -4.6 " + doors[3].getAttribute('position').z;
+                        doors[3].setAttribute('animation', ani.value);
                         text[1].setAttribute('value', "Dit is het juiste antwoord, de vorm van een bacil is namelijk staafvorming.");
                     }
 

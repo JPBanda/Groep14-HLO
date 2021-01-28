@@ -8,6 +8,34 @@ window.onload = () => {
     let hold = null;
     let ani = document.createAttribute('animation');
     
+    const buttons = document.getElementsByClassName("js--button1");
+    let zani = document.createAttribute("animation");
+    let bani = document.createAttribute("animation");
+    let door_open = new Audio("./Sounds/door_open.mp3");
+  
+    let utter = new SpeechSynthesisUtterance();
+    utter.lang = "nl-NL";
+    utter.volume = 0.5;
+  
+    function doorInfoUnlock() {
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[0].addEventListener("click", function (evt) {
+          bani.value =
+            "property: rotation; easing: linear; dur: 1000; to: 0 0 135";
+          buttons[0].setAttribute("animation", bani.value);
+          door_open.play();
+          zani.value =
+            "property: position; easing: linear; dur: 11000; to:" +
+            doors[1].getAttribute("position").x +
+            " -4.6 " +
+            doors[1].getAttribute("position").z;
+          doors[1].setAttribute("animation", zani.value);
+          
+        });
+      }
+    }
+    doorInfoUnlock();
+    
     
     function addListeners(){
         for (let i = 0; i < antwoorden.length; i++){
@@ -58,8 +86,8 @@ window.onload = () => {
                 box.setAttribute('src', './img/Gramkleuring_positief.jpg'); 
                 if(evt.target == antwoord_holder[0]){
                     text[2].setAttribute('value', "Deze is inderdaad asporogeen, want asporogeen heeft geen ander gekleurde sporen.");
-                    ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
-                    doors[2].setAttribute('animation', ani.value);
+                    ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[4].getAttribute('position').x + " -4.6 " + doors[4].getAttribute('position').z;
+                    doors[4].setAttribute('animation', ani.value);
                 }  
             } 
             if (hold == 2){
