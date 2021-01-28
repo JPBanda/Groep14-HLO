@@ -1,46 +1,91 @@
 window.onload = () => {
+    const camera = document.getElementById('js--camera');
+    let antwoorden = document.getElementsByClassName('js--antwoord_pickup');
+    const antwoord_holder = document.getElementsByClassName('js--antwoord_holder');
+    let scene = document.getElementById('js--scene');
+    const text = document.getElementsByClassName("js--hint-text");
+    const doors = document.getElementsByClassName("js--door");
+    let hold = null;
+    let ani = document.createAttribute('animation');
     
-
-
-        
-
-
-    // let synth = window.speechSynthesis;
-    // let utter = new SpeechSynthesisUtterance();
-    // utter.lang = 'nl-NL';
-
     
+    function addListeners(){
+        for (let i = 0; i < antwoorden.length; i++){
+            antwoorden[i].addEventListener('click', function(evt){
+                if (hold == null && evt.target.classList.contains("js--a0")){
+                    camera.innerHTML += '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Sponge.jpg" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+                    hold = 0;             
+                }
+                if (hold == null && evt.target.classList.contains("js--a1")){
+                    camera.innerHTML += '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Gramkleuring_positief.jpg" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+                    hold = 1;             
+                } 
+                if (hold == null && evt.target.classList.contains("js--a2")){
+                    camera.innerHTML += '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Asporogeen_2.png" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+                    hold = 2;           
+                } 
+                if (hold == null && evt.target.classList.contains("js--a3")){
+                    camera.innerHTML += '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Asporogeen.png" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+                    hold = 3;            
+                } 
+
+                this.remove();  
+                    text[2].setAttribute('value', ""); 
+            });
+        }
+    }
+
+    addListeners();
 
 
-    // hint_lamp.addEventListener("click", (evt) => {
-    //     hint_lamp.emit("test");
-    // });
+    for (let i = 0; i < antwoord_holder.length; i++){
+        antwoord_holder[i].addEventListener('click', function(evt){
+            let box = document.createElement('a-box');
+                box.setAttribute("width", "0.8");
+                box.setAttribute("depth", "0.8");
+                box.setAttribute("height", "0.8");
+                box.setAttribute('position', {x: this.getAttribute('position').x, y:"0.5", z: this.getAttribute('position').z});   
+
+            if (hold == 0){
+                box.setAttribute('class', 'js--antwoord_pickup js--a0 js--interact');
+                box.setAttribute('src', './img/Sponge.jpg');   
+                if(evt.target == antwoord_holder[0]){
+                    text[2].setAttribute('value', "Dit is een spons geen bacterie.");
+                }
+            } 
+            if (hold == 1){
+                box.setAttribute('class', 'js--antwoord_pickup js--a1 js--interact');
+                box.setAttribute('src', './img/Gramkleuring_positief.jpg'); 
+                if(evt.target == antwoord_holder[0]){
+                    text[2].setAttribute('value', "Deze is inderdaad asporogeen, want asporogeen heeft verkleurt niet.");
+                    ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
+                    doors[2].setAttribute('animation', ani.value);
+                }  
+            } 
+            if (hold == 2){
+                box.setAttribute('class', 'js--antwoord_pickup js--a2 js--interact');
+                box.setAttribute('src', './img/Asporogeen_2.png');    
+                if(evt.target == antwoord_holder[0]){
+                    text[2].setAttribute('value', "Deze bacterie is sporogeen, want hij heeft 2 kleuren.");
+                }  
+            } 
+            if (hold == 3){
+                box.setAttribute('class', 'js--antwoord_pickup js--a3 js--interact');
+                box.setAttribute('src', './img/Asporogeen.png');    
+                if(evt.target == antwoord_holder[0]){
+                    text[2].setAttribute('value', "Deze bacterie is ook sporogeen, want hij heeft 2 kleuren.");
+                }  
+                
+            } 
+
+            scene.appendChild(box);    
+            document.getElementById('js--antwoord_holding').remove();   
+            hold = null;
+            addListeners();
+        });
+    }
 
 
-    // block.addEventListener("click", (evt) => {
-    //     for (let i = 0; i < text.length; i++){
-    //         utter.text = text[i].getAttribute('value');
-    //         synth.speak(utter);
-    //         console.log("event listener werkt")
-    //     }
-    // });
-        
-    
-
-    // fetch('https://api.gbif.org/v1/species/7380886')
-    //             .then(response => response.json())
-    //             .then(data => console.log(data));
-
-    // fetch('https://api.gbif.org/v1/species/7380886')
-    //             .then(response => response.json())
-    //             .then(data => text_extern.setAttribute('value', "Naam: " + data.canonicalName + "\n" + "Soort: " + data.kingdom));
-
-    // Google search op images moet nog wel verbeterd worden aangezien hij moeilijke querries niet pakt
-    // fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyCEZPBtiVPhBdLpa0aDoJ1p1Bz3rwxf3pc&cx=ba3a73fb539676d10&q=Netherlands - Country+image")
-    //     .then(response => response.json())
-    //     .then(data => console.log(data));
-
-    
 }
 
 

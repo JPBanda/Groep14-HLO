@@ -18,10 +18,10 @@ AFRAME.registerComponent('button', {
                     buttons[i].setAttribute('animation', bani.value);
         
                     // Foute antwoorden
-                    if(i == 0){
+                    if(i == 2){
                         text[0].setAttribute('value', "Dit is helaas het verkeerde antwoord, de kleur hier is blauwe niet roze.");
                     }
-                    if(i == 5){
+                    if(i == 3){
                         text[1].setAttribute('value', "Dit is helaas het verkeerde antwoord, de vorm van deze soort is bolvormig.");
                     }
 
@@ -29,14 +29,16 @@ AFRAME.registerComponent('button', {
                     if(i == 1){
                         ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[0].getAttribute('position').x + " -4.6 " + doors[0].getAttribute('position').z;
                         doors[0].setAttribute('animation', ani.value);
+                        text[0].setAttribute('value', "Dit is het juiste antwoord, de kleur is namelijk bij gram positief blauw.");
                     }
-                    if (i == 3){
+                    if (i == 5){
                         ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[1].getAttribute('position').x + " -4.6 " + doors[1].getAttribute('position').z;
                         doors[1].setAttribute('animation', ani.value);
+                        text[1].setAttribute('value', "Dit is het juiste antwoord, de vorm van een bacil is namelijk staafvorming.");
                     }
 
                     // Antwoorden die er totaal niet bij horen
-                    if(i == 2){
+                    if(i == 0){
                         text[0].setAttribute('value', "Gram neutraal is niet benoemd binnen dit onderwerp, tenzij je een zwart wit filter hebt.");
                     }
                     if(i == 4){
