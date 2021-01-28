@@ -7,7 +7,6 @@
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src='main.js'></script>
     <script src='hint.js'></script>
-    <script src='collectible.js'></script>
     <script src="moving.js"></script>
     <script src="pickup.js"></script>
 </head>
@@ -73,6 +72,10 @@
         <a-box moving class="js--place js--interact" color="black" position="0 0.1 -4.5" height="0.1"></a-box>
         <a-box moving class="js--place js--interact" color="black" position="4.5 0.1 -4.5" height="0.1"></a-box>
         <a-box moving class="js--place js--interact" color="black" position="-4.5 0.1 -4.5" height="0.1"></a-box>
+        <a-box moving class="js--place js--interact" color="black" position="10 0.1 -4.5" height="0.1"></a-box>
+        <a-box moving class="js--place js--interact" color="black" position="14 0.1 -4.5" height="0.1"></a-box>
+        <a-box moving class="js--place js--interact" color="black" position="14 0.1 -7" height="0.1"></a-box>
+        <a-box moving class="js--place js--interact" color="black" position="14 0.1 -2" height="0.1"></a-box>
 
         <!-- tafels linker kant -->
         <a-obj-model src="#lab-desk-obj" mtl="#lab-desk-mtl" position="-6.5 0 -0.5" scale="0.009 0.009 0.01" rotation="0 0 0"></a-obj-model>
@@ -122,7 +125,9 @@
         <a-box color="grey" position="4 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
         <a-box color="grey" position="2 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
 
-        <a-text color="white" position="1.95 1.1 1" value="Navigeer in de \n omgeving door de \n cursor op de zwarte \n vlakken te houden" align="center" scale="0.9"></a-text>
+        <a-text color="white" position="-1.95 1.2 1" value="Navigeer in de \n omgeving door de \n cursor op de zwarte \n vlakken te houden" align="center" scale="0.9"></a-text>
+        <a-text color="white" position="1.95 1.45 1" value="Ga naar rechts \n voor info" align="center" scale="0.9"></a-text>
+        <a-text color="white" position="1.95 0.8 1" value="Ga naar links \n voor opdrachten" align="center" scale="0.9"></a-text>
         <!-- <a-box color="grey" position="0 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box> -->
         <a-box color="grey" position="-2 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
         <a-box color="grey" position="-4 1.1 0.95" width="2" depth="0.1" height="2.4"></a-box>
@@ -158,6 +163,35 @@
         </a-box>
 
 
+        <!--Kamer met extra info-->
+        <!--Muurtjes van de 'gang'-->
+        <a-box color="grey" position="10 1.1 -3.45" width="2" depth="0.1" height="5" rotation="0 0 0"></a-box>
+        <a-box color="grey" position="10 1.1 -5.55" width="2" depth="0.1" height="5" rotation="0 0 0"></a-box>
+        <!--Rechter achtermuur-->
+        <a-box color="grey" position="11 1.1 -6.5" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="11 1.1 -8" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <!--Linker achtermuur-->
+        <a-box color="grey" position="11 1.1 -2.5" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="11 1.1 -1" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <!--Linkerkant van de kamer + img van gram positief schema-->
+        <a-box color="grey" position="12 1.1 -8.95" width="2" depth="0.1" height="5"></a-box>
+        <a-box color="grey" position="14 1.1 -8.95" width="2" depth="0.1" height="5"></a-box>
+        <a-box color="grey" position="16 1.1 -8.95" width="2" depth="0.1" height="5"></a-box>
+        <a-image src="./img/positief.png" position="14 1.75 -8.8" scale="3 3 3 "></a-image>
+        <!--Rechterkant van de kamer + img van gram negatief schema-->
+        <a-box color="grey" position="12 1.1 -0.05" width="2" depth="0.1" height="5"></a-box>
+        <a-box color="grey" position="14 1.1 -0.05" width="2" depth="0.1" height="5"></a-box>
+        <a-box color="grey" position="16 1.1 -0.05" width="2" depth="0.1" height="5"></a-box>
+        <a-image src="./img/negatief.png" position="14 1.75 -0.2" scale="3 3 3 " rotation="0 180 0"></a-image>
+        <!--Voorkant van de kamer-->
+        <a-box color="grey" position="17 1.1 -4.5" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="17 1.1 -8" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="17 1.1 -6.5" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="17 1.1 -2.5" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <a-box color="grey" position="17 1.1 -1" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+
+
+
         <!-- voor -->
         <a-box color="grey" position="8 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
         <a-box color="grey" position="6 1.1 -10.95" width="2" depth="0.1" height="2.4"></a-box>
@@ -172,6 +206,7 @@
         <!-- vloer -->
         <a-plane color="darkorange" width="6" height="6" position="0 -0.1 4" rotation="-90 0 0"></a-plane>
         <a-plane color="darkorange" width="18" height="12" position="0 -0.1 -5" rotation="-90 0 0"></a-plane>
+        <a-plane color="darkorange" width="18" height="12" position="8.8 -0.1 -5" rotation="-90 0 0"></a-plane>
         <a-plane color="gold" width="4" height="0.2" position="0 -0.09 0.9" rotation="-90 0 0"></a-plane>
 
         <!-- <a-entity environment="preset:forest;"></a-entity> -->

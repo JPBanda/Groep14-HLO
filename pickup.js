@@ -16,6 +16,7 @@ AFRAME.registerComponent("pickup", {
     const doors = document.getElementsByClassName("js--door");
     let ani = document.createAttribute("animation");
     let bani = document.createAttribute("animation");
+    let door_open = new Audio("./Sounds/door_open.mp3");
 
     this.doorUnlock = function () {
       if (holdms == "placed" && holdgb == "placed" && holdprep == "placed") {
@@ -124,9 +125,6 @@ AFRAME.registerComponent("pickup", {
             z: this.getAttribute("position").z,
           });
           holdprep = "placed";
-          console.log(holdms);
-          console.log(holdgb);
-          console.log(holdprep);
           scene.appendChild(prep);
           document.getElementById("js--prep").remove();
           unlockDoor();
@@ -138,9 +136,9 @@ AFRAME.registerComponent("pickup", {
 
     function unlockDoor() {
       if (holdms == "placed" && holdgb == "placed" && holdprep == "placed") {
-        console.log("goed");
+        door_open.play();
         ani.value =
-          "property: position; easing: linear; dur: 5000; to:" +
+          "property: position; easing: linear; dur: 11000; to:" +
           doors[0].getAttribute("position").x +
           " -4.6 " +
           doors[0].getAttribute("position").z;
