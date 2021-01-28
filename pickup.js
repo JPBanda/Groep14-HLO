@@ -13,11 +13,26 @@ AFRAME.registerComponent("pickup", {
     let holdms = null;
     let holdgb = null;
     let holdprep = null;
-    const door = document.getElementsByClassName("js--door");
+    const doors = document.getElementsByClassName("js--door");
     let ani = document.createAttribute("animation");
-    let holdms_placed = false;
-    let holdgb_placed = false;
-    let holdprep_placed = false;
+    let bani = document.createAttribute("animation");
+
+    this.doorUnlock = function () {
+      if (holdms == "placed" && holdgb == "placed" && holdprep == "placed") {
+        // console.log("goed");
+        buttons[0].addEventListener("click", function (evt) {
+          bani.value =
+            "property: rotation; easing: linear; dur: 1000; to: 0 0 -135";
+          buttons[0].setAttribute("animation", bani.value);
+          ani.value =
+            "property: position; easing: linear; dur: 5000; to:" +
+            doors[0].getAttribute("position").x +
+            " -4.6 " +
+            doors[0].getAttribute("position").z;
+          doors[0].setAttribute("animation", ani.value);
+        });
+      }
+    };
 
     this.pickup_ms = function () {
       microscope.addEventListener("click", function (evt) {
@@ -68,9 +83,10 @@ AFRAME.registerComponent("pickup", {
             y: "1.1",
             z: this.getAttribute("position").z,
           });
+          holdms = "placed";
           scene.appendChild(microscope);
           document.getElementById("js--hold").remove();
-          holdms_placed == true;
+          unlockDoor();
         }
       });
     };
@@ -87,9 +103,10 @@ AFRAME.registerComponent("pickup", {
             y: "0.9",
             z: this.getAttribute("position").z,
           });
+          holdgb = "placed";
           scene.appendChild(gasbrander);
           document.getElementById("js--gasbrander").remove();
-          holdgb_placed == true;
+          unlockDoor();
         }
       });
     };
@@ -106,21 +123,30 @@ AFRAME.registerComponent("pickup", {
             y: "1.05",
             z: this.getAttribute("position").z,
           });
+          holdprep = "placed";
+          console.log(holdms);
+          console.log(holdgb);
+          console.log(holdprep);
           scene.appendChild(prep);
           document.getElementById("js--prep").remove();
-          holdprep_placed == true;
+          unlockDoor();
         }
+        // if (holdms == "placed" && holdgb == "placed" && holdprep == "placed") {
+        //   console.log("goed");
       });
     };
 
-    this.doorUnlock = function () {
-        if (holdms_placed == true && holdgb_placed == true && holdprep_placed == true) {
-            console.log("goed");
-          ani.value = 'property: position; easing: linear; dur: 5000; to:' + door.getAttribute('position').x + " -4.6 " + door.getAttribute('position').z;
-          door.setAttribute('animation', ani.value);
-        }
-      };
-
+    function unlockDoor() {
+      if (holdms == "placed" && holdgb == "placed" && holdprep == "placed") {
+        console.log("goed");
+        ani.value =
+          "property: position; easing: linear; dur: 5000; to:" +
+          doors[0].getAttribute("position").x +
+          " -4.6 " +
+          doors[0].getAttribute("position").z;
+        doors[0].setAttribute("animation", ani.value);
+      }
+    }
 
     this.el.addEventListener("click", this.pickup_ms);
     this.el.addEventListener("click", this.putdown_ms);
@@ -137,7 +163,6 @@ AFRAME.registerComponent("pickup", {
     this.putdown_gb();
     this.pickup_prep();
     this.putdown_prep();
-    this.doorUnlock();
   },
 
   remove: function () {

@@ -18,7 +18,7 @@ window.onload = () => {
   const preparaat = document.getElementById("preparaat");
   const microscope_place = document.getElementById("microscope_place");
   const gasbrander_place = document.getElementById("gasbrander_place");
-  const prep_place = document.getElementById("preparaat_place")
+  const prep_place = document.getElementById("preparaat_place");
   let holdms = null;
   let holdgb = null;
   let holdprep = null;
@@ -28,25 +28,42 @@ window.onload = () => {
   utter.lang = "nl-NL";
   utter.volume = 0.5;
 
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function (evt) {
-      ani.value =
-        "property: position; easing: linear; dur: 5000; to:" +
-        doors[i].getAttribute("position").x +
-        " -1.6 " +
-        doors[i].getAttribute("position").z;
-      doors[i].setAttribute("animation", ani.value);
-
-      bani.value = "property: rotation; easing: linear; dur: 1000; to: 135 0 0";
-      buttons[i].setAttribute("animation", bani.value);
-    });
+  function doorInfoUnlock() {
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[0].addEventListener("click", function (evt) {
+        bani.value =
+          "property: rotation; easing: linear; dur: 1000; to: 0 0 135";
+        buttons[0].setAttribute("animation", bani.value);
+        ani.value =
+          "property: position; easing: linear; dur: 5000; to:" +
+          doors[1].getAttribute("position").x +
+          " -4.6 " +
+          doors[1].getAttribute("position").z;
+        doors[1].setAttribute("animation", ani.value);
+      });
+    }
   }
+  doorInfoUnlock();
 
-  hint_lamp.addEventListener("click", () => {
-    hint_lamp.emit("test");
-    backdrop.setAttribute("position", "-4 1.5 0");
-    text.setAttribute("position", "-4 1.5 0");
-  });
+  // for (let i = 0; i < buttons.length; i++) {
+  //   buttons[i].addEventListener("click", function (evt) {
+  //     ani.value =
+  //       "property: position; easing: linear; dur: 5000; to:" +
+  //       doors[i].getAttribute("position").x +
+  //       " -1.6 " +
+  //       doors[i].getAttribute("position").z;
+  //     doors[i].setAttribute("animation", ani.value);
+
+  //     bani.value = "property: rotation; easing: linear; dur: 1000; to: 135 0 0";
+  //     buttons[i].setAttribute("animation", bani.value);
+  //   });
+  // }
+
+  // hint_lamp.addEventListener("click", () => {
+  //   hint_lamp.emit("test");
+  //   backdrop.setAttribute("position", "-4 1.5 0");
+  //   text.setAttribute("position", "-4 1.5 0");
+  // });
 
   // block.addEventListener("click", () => {
   //     utter.text = text.getAttribute('value');
