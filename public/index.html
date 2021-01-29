@@ -16,8 +16,8 @@
 <body>
     <a-scene id="js--scene">
         
-        <a-entity id='js--camera' position='0 1.5 5' wasd-controls="acceleration: 200;">
-        <a-camera >
+        <a-entity id='js--camera' position='0 0 5' wasd-controls="acceleration: 200;">
+        <a-camera id="js--vision">
             <a-cursor 
             id='js--cursor'
             color='purple'
@@ -174,6 +174,7 @@
         <a-text color="white" position="-1.95 2.2 1" value="Pak objecten op \n door de cursor op \n de objecten te \n houden" align="center" scale="0.9"></a-text>
         <a-text color="white" position="1.95 2.1 1" value="Ga naar rechts \n voor info" align="center" scale="0.9"></a-text>
         <a-text color="white" position="1.95 1.2 1" value="Ga naar links \n voor opdrachten" align="center" scale="0.9"></a-text>
+        <a-text color="white" position="0 3.2 1" value="Belangrijk: \n Ga op het zwarte vlak achter je staan" align="center" scale="0.9"></a-text>
 
         <!-- links -->
         <a-box color="grey" position="-9 1.1 0" width="2" depth="0.1" height="5" rotation="0 90 0"></a-box>
@@ -326,8 +327,6 @@
         <a-text class="js--hint-text" color="black" value="" align="center" position="-13 1.5 -7.3" width="4"></a-text>
         <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-12.5 0.75 -7" scale="0.1 0.1 0.1"></a-obj-model>
 
-        <!-- Text to speech trigger -->
-        <a-box class="js--block js--interact" position="-13.5 0.75 -7" width="0.25" height="0.25" depth="0.25"></a-box>
 
 
         <!-- Kamer 2 -->
@@ -413,8 +412,6 @@
         <a-text class="js--hint-text" color="black" value="" align="center" position="-24.8 1.5 -3.5" rotation="0 90 0" width="4"></a-text>
         <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-24.5 0.75 -4" scale="0.1 0.1 0.1"></a-obj-model>
 
-        <!-- Text to speech trigger -->
-        <a-box class="js--block js--interact" position="-24.5 0.75 -3" width="0.25" height="0.25" depth="0.25"></a-box>
          
 
 
@@ -474,9 +471,6 @@
         <a-plane width="5" height="1" position="-24.8 1.5 -14.75" rotation="0 90 0"></a-plane>
         <a-text class="js--hint-text" color="black" value="" align="center" position="-24.8 1.5 -14.75" rotation="0 90 0" width="4"></a-text>
         <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-24.5 0.75 -15.25" scale="0.1 0.1 0.1"></a-obj-model>
-
-        <!-- Text to speech trigger -->
-        <a-box class="js--block js--interact" position="-24.5 0.75 -14.25" width="0.25" height="0.25" depth="0.25"></a-box>
         
         <!-- Kamer 4 -->
 
@@ -579,9 +573,6 @@
         <a-plane width="5" height="1" position="-13 1.5 -11" rotation="0 180 0"></a-plane>
         <a-text class="js--hint-text" color="black" value="" align="center" position="-13 1.5 -11" width="4" rotation="0 180 0"></a-text>
         <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-12.5 0.75 -11.25" scale="0.1 0.1 0.1"></a-obj-model>
-
-        <!-- Text to speech trigger -->
-        <a-box class="js--block js--interact" position="-13.5 0.75 -11.25" width="0.25" height="0.25" depth="0.25"></a-box>
 
         <!-- Kamer 5 -->
 

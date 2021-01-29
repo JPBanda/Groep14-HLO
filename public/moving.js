@@ -18,7 +18,7 @@ AFRAME.registerComponent('moving', {
           let camera_position = camera.getAttribute('position');
           let box_position = this.getAttribute('position');
           let duration = pythagoras(box_position.x, box_position.z, camera_position.x, camera_position.z) * 333;
-          att.value = "property: position; easing: linear; dur: " + duration + "; to: " + this.getAttribute('position').x + " 1.6 " + this.getAttribute('position').z;
+          att.value = "property: position; easing: linear; dur: " + duration + "; to: " + this.getAttribute('position').x + " 0 " + this.getAttribute('position').z;
           camera.setAttribute('animation', att.value);
         });
       }

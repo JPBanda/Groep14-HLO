@@ -2,7 +2,7 @@ AFRAME.registerComponent("pickup", {
   schema: {},
 
   init: function () {
-    const camera = document.getElementById("js--camera");
+    const camera = document.getElementById("js--vision");
     let scene = document.getElementById("js--scene");
     const microscope = document.getElementById("microscope");
     const gasbrander = document.getElementById("gasbrander");
@@ -39,7 +39,7 @@ AFRAME.registerComponent("pickup", {
       microscope.addEventListener("click", function (evt) {
         if (holdms == null && document.getElementById("microscope")) {
           camera.innerHTML +=
-            '<a-obj-model collectible id="js--hold" class="js--item js--col1 js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="1.2 -1 -1" scale="0.09 0.09 0.09"></a-obj-model>';
+            '<a-obj-model collectible id="js--hold" class="js--item js--col1 js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="0.5 -1 -1" scale="0.09 0.09 0.09"></a-obj-model>';
           holdms = "item";
           document.getElementById("microscope").remove();
         }
@@ -50,7 +50,7 @@ AFRAME.registerComponent("pickup", {
       gasbrander.addEventListener("click", function (evt) {
         if (holdgb == null && document.getElementById("gasbrander")) {
           camera.innerHTML +=
-            '<a-gltf-model id="js--gasbrander" src="#gasbrander-gltf" position="1.2 -1 -1" scale="1.2 1.2 1.2"></a-gltf-model>';
+            '<a-gltf-model id="js--gasbrander" src="#gasbrander-gltf" position="0.5 -1 -1" scale="1.2 1.2 1.2"></a-gltf-model>';
           holdgb = "hold";
           document.getElementById("gasbrander").remove();
         }
@@ -61,7 +61,7 @@ AFRAME.registerComponent("pickup", {
       preparaat.addEventListener("click", function (evt) {
         if (holdprep == null && document.getElementById("preparaat")) {
           camera.innerHTML +=
-            '<a-gltf-model id="js--prep" class="js--interact" src="#preparaat-gltf" position="0.8 -0.5 -0.6" scale="0.04 0.04 0.04"></a-gltf-model>';
+            '<a-gltf-model id="js--prep" class="js--interact" src="#preparaat-gltf" position="0.5 -0.5 -1" scale="0.04 0.04 0.04"></a-gltf-model>';
           holdprep = "prep";
           document.getElementById("preparaat").remove();
         }

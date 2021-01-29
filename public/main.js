@@ -1,5 +1,5 @@
 window.onload = () => {
-  const camera = document.getElementById("js--camera");
+  const camera = document.getElementById("js--vision");
   let antwoorden = document.getElementsByClassName("js--antwoord_pickup");
   const antwoord_holder = document.getElementsByClassName(
     "js--antwoord_holder"
@@ -58,22 +58,22 @@ window.onload = () => {
       antwoorden[i].addEventListener("click", function (evt) {
         if (hold == null && evt.target.classList.contains("js--a0")) {
           camera.innerHTML +=
-            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Sponge.jpg" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Sponge.jpg" width="0.8" depth="0.8" height="0.8" position="0.5 -0.8 -1"></a-box>';
           hold = 0;
         }
         if (hold == null && evt.target.classList.contains("js--a1")) {
           camera.innerHTML +=
-            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Gramkleuring_positief.jpg" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Gramkleuring_positief.jpg" width="0.8" depth="0.8" height="0.8" position="0.5 -0.8 -1"></a-box>';
           hold = 1;
         }
         if (hold == null && evt.target.classList.contains("js--a2")) {
           camera.innerHTML +=
-            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Asporogeen_2.png" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Asporogeen_2.png" width="0.8" depth="0.8" height="0.8" position="0.5 -0.8 -1"></a-box>';
           hold = 2;
         }
         if (hold == null && evt.target.classList.contains("js--a3")) {
           camera.innerHTML +=
-            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Asporogeen.png" width="0.8" depth="0.8" height="0.8" position="1 -1 -1"></a-box>';
+            '<a-box id="js--antwoord_holding" class="js--antwoord_pickup js--interact" src="./img/Asporogeen.png" width="0.8" depth="0.8" height="0.8" position="0.5 -0.8 -1"></a-box>';
           hold = 3;
         }
 
