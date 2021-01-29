@@ -1,0 +1,39 @@
+AFRAME.registerComponent('pipet', {
+    schema: {
+        
+    },
+
+    init: function () {
+      const pipet = document.getElementsByClassName("js--pickup_pipet");
+      const camera = document.getElementById('js--camera');
+      let hold  = null;
+
+      this.pickupPipet = function(){
+          for (let i = 0; i < pipet.length; i++){
+              pipet[i].addEventListener("click", function(evt) {
+                const camera = document.getElementById('js--camera');
+                  if (hold == null){
+                      camera.innerHTML += '<a-cylinder pickup_pipet class="js--pickup_pipet js--interact" color="blue" zuurvast height="0.5" width="0.5" radius="0.25" position="0.5 -0.5 -0.3"></a-cylinder>'
+                      hold = 'pipet';
+                      this.remove();
+                      this.emit("hold");
+                  }
+              })
+          }
+      }
+
+      this.el.addEventListener("click", this.pickupPipet);
+    },
+
+    update: function () {
+      this.pickupPipet();
+    },
+
+    remove: function () {
+      // Do something the component or its entity is detached.
+    },
+
+    tick: function (time, timeDelta) {
+      // Do something on every scene tick or frame.
+    }
+});

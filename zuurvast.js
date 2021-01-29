@@ -3,51 +3,36 @@ AFRAME.registerComponent('zuurvast', {
         
     },
 
-    init: function () {
+    init: function() {
         const image = document.getElementsByClassName("js--imageChange");
         const pixel = document.querySelectorAll("[image]");
         console.log("in init")
-        
+        let hold = null;
 
-        this.test = function() {
+        this.changeHold = function(){
+            hold = 'pipet';
+        }
+
+        this.changePicture = function() {
             for (let i = 0; i < pixel.length; i++) {
-                console.log("in this.test");
-                image[i].setAttribute("src", "./img/zuurvast.png");
+                pixel[i].addEventListener("mouseenter", function(evt){
+                    if(hold == 'pipet'){
+                        console.log("in this.test");
+                        image[i].setAttribute("src", "./img/zuurvast.png");  
+                    } 
+                });
                 
             }
+        };
 
-        //this.next = function (params) {
-        //    if (image.src = "./img/zuurvast.png") {
-        //        
-        //    }
-                
-                
-            };
-
-            
+        this.el.addEventListener("hold", this.changeHold);
+        this.el.addEventListener("mouseenter", this.changePicture);
         
-      
-        
-
-        
-
-        //fetch('https://api.gbif.org/v1/species/8018537')
-        //.then(response => response.json())
-        //.then(data => console.log(data));
-//
-        //fetch('https://api.gbif.org/v1/species/8018537')
-        //.then(response => response.json())
-        //.then(data => text_extern[0].setAttribute('value', "Naam: " + data.canonicalName));
-        //  }
-        
-      }
-      
-      
-    ,
+    },
 
     update: function () {
-        this.el.addEventListener("click", this.test);
-        
+        this.el.addEventListener("hold", this.changeHold);
+        this.changePicture();
     },
 
     remove: function () {

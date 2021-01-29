@@ -9,6 +9,7 @@
     <script src='buttons.js'></script>
     <script src="wjd.js"></script>
     <script src="zuurvast.js"></script>
+    <script src="pickup_pipet.js"></script>
 </head>
 <body>
     <a-scene>
@@ -449,17 +450,26 @@
          <a-box color="grey" depth="0.2" width="2" height="5" position="-14 1.1 -10.75"></a-box>
          <a-box color="grey" depth="0.2" width="2" height="5" position="-16 1.1 -10.75"></a-box>
 
-        <a-cylinder class="js--interact" color="blue" zuurvast height="0.5" width="0.5" radius="0.25" position="-13 0 -16.75"></a-cylinder>
-         <a-plane class="js--interact js--imageChange" image src="./img/asporogeen.png" height="1" width="1" position="-11 1.1 -13.75" rotation="0 270 0" ></a-plane>
-         <a-plane class="js--interact js--imageChange" image src="./img/asporogeen.png" height="1" width="1" position="-11 1.1 -14.75" rotation="0 270 0" ></a-plane>
-         <a-plane class="js--interact js--imageChange" image src="./img/asporogeen.png" height="1" width="1" position="-11 1.1 -15.75" rotation="0 270 0" ></a-plane>
-         <a-plane class="js--interact js--imageChange" image src="./img/asporogeen.png" height="1" width="1" position="-11 2.1 -13.75" rotation="0 270 0" ></a-plane>
-         <a-plane class="js--interact js--imageChange" image src="./img/asporogeen.png" height="1" width="1" position="-11 2.1 -14.75" rotation="0 270 0" ></a-plane>
-         <a-plane class="js--interact js--imageChange" image src="./img/asporogeen.png" height="1" width="1" position="-11 2.1 -15.75" rotation="0 270 0" ></a-plane>
+        <a-cylinder pipet class="js--pickup_pipet js--interact" color="blue" zuurvast height="0.5" width="0.5" radius="0.25" position="-13 0 -16.75"></a-cylinder>
+
+        <a-plane zuurvast image class="js--imageChange js--interact" image src="./img/asporogeen.png" height="1" width="1" position="-12 1.1 -18.64" rotation="0 0 0" ></a-plane>
+        <a-plane zuurvast image class="js--imageChange js--interact" image src="./img/asporogeen.png" height="1" width="1" position="-13 1.1 -18.64" rotation="0 0 0" ></a-plane>
+        <a-plane zuurvast image class="js--imageChange js--interact" image src="./img/asporogeen.png" height="1" width="1" position="-14 1.1 -18.64" rotation="0 0 0" ></a-plane>
+        <a-plane zuurvast image class="js--imageChange js--interact" image src="./img/asporogeen.png" height="1" width="1" position="-12 2.1 -18.64" rotation="0 0 0" ></a-plane>
+        <a-plane zuurvast image class="js--imageChange js--interact" image src="./img/asporogeen.png" height="1" width="1" position="-13 2.1 -18.64" rotation="0 0 0" ></a-plane>
+        <a-plane zuurvast image class="js--imageChange js--interact" image src="./img/asporogeen.png" height="1" width="1" position="-14 2.1 -18.64" rotation="0 0 0" ></a-plane>
  
          <!--- Floor -->
          <a-plane color="darkorange" rotation="-90 0 0" position="-13 -0.1 -14.75" width="8" height="8"></a-plane>
          <a-box color="black" height="0.1" width="1" depth="1" position="-13 0.1 -14.75"></a-box>
+
+         <!-- Hint -->
+        <a-plane width="5" height="1" position="-13 1.5 -10.75" rotation="0 180 0"></a-plane>
+        <a-text class="js--hint-text" color="black" value="" align="center" position="-13 1.5 -10.75" width="4" rotation="0 180 0"></a-text>
+        <a-obj-model hint class="js--gloeilamp js--interact" src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-12.5 0.75 -7" scale="0.1 0.1 0.1"></a-obj-model>
+
+        <!-- Text to speech trigger -->
+        <a-box class="js--block js--interact" position="-13.5 0.75 -7" width="0.25" height="0.25" depth="0.25"></a-box>
 
         <!-- Kamer 5 -->
 
@@ -512,11 +522,11 @@
          <a-box color="grey" depth="0.2" width="2" height="5" position="-6 1.1 -18.75"></a-box>
          <a-box color="grey" depth="0.2" width="2" height="5" position="-8 1.1 -18.75"></a-box>
 
-         <a-box class="js--end js--interact" wjd color="lightblue" position="-3.5 0 -14.75" width="0.4" height="0.4" depth="0.4"></a-box>
-         <a-plane color="green" position="-1.5 1.1 -14.75" width="3" height="5" rotation="0 270 0"></a-plane>
-         <a-plane color="lightgreen" position="-1.51 1.1 -14.75" width="3" height="4.25" rotation="0 270 0"></a-plane>
-         <a-text align="center" fact color="white" value="UNDEFINED" rotation="0 270 0" position="-1.51 3.43 -14.75" ></a-text>
-         <a-text align="center" fact color="white" value="undefined" rotation="0 270 0" position="-1.51 1.9 -14.75" ></a-text>
+         <a-box class="js--end js--interact" wjd color="lightblue" position="-3.5 0 -16.75" width="0.4" height="0.4" depth="0.4"></a-box>
+         <a-plane color="green" position="-5 1.1 -18.64" width="3" height="5" rotation="0 0 0"></a-plane>
+         <a-plane color="lightgreen" position="-55 1.1 -18.63" width="3" height="4.25" rotation="0 0 0"></a-plane>
+         <a-text align="center" fact color="white" value="UNDEFINED" rotation="0 0 0" position="-5 3.43 -18.639" ></a-text>
+         <a-text align="center" fact color="white" value="undefined" rotation="0 0 0" position="-5 1.9 -18.639" ></a-text>
  
          <!-- Links -->
          <!-- <a-box color="grey" depth="0.2" width="2" height="5" position="-2 1.1 -10.75"></a-box>
