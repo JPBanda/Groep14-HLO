@@ -7,6 +7,7 @@ AFRAME.registerComponent('wjd', {
         const box = document.getElementsByClassName("js--end");
         const fact = document.querySelectorAll("[fact]");
         const BASE_URL = 'https://api.gbif.org/v1/species/';
+        const uitkomst = document.getElementsByClassName("js--uitkomst_picture")[0];
         
 
         this.anwser = function(){
@@ -17,6 +18,8 @@ AFRAME.registerComponent('wjd', {
                 .then(response => response.json())
                 .then(data => fact[1].setAttribute('value', "Rijk: " + data.kingdom + "\n Afdeling: " + data.phylum + "\n Orde: " + data.order + "\n Familie: " + data.family ));
                 console.log("in this.answer");
+
+                uitkomst.setAttribute("src", "./img/Mycobacteria.jpg");
               
             
         }

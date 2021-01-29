@@ -13,7 +13,8 @@ AFRAME.registerComponent('pipet', {
               pipet[i].addEventListener("click", function(evt) {
                 const camera = document.getElementById('js--camera');
                   if (hold == null){
-                      camera.innerHTML += '<a-cylinder pickup_pipet class="js--pickup_pipet js--interact" color="blue" zuurvast height="0.5" width="0.5" radius="0.25" position="0.5 -0.5 -0.3"></a-cylinder>'
+                      camera.innerHTML += '<a-gltf-model pipet src="#pipet-gltf"  class="js--pickup_pipet js--interact" zuurvast scale="2 2 2" position="0.4 -0.1 -0.3" rotation="0 0 180"></a-gltf-model>'
+                      
                       hold = 'pipet';
                       this.remove();
                       this.emit("hold");
