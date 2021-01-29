@@ -17,8 +17,6 @@ AFRAME.registerComponent('wjd', {
                 fetch(BASE_URL + "8018537")
                 .then(response => response.json())
                 .then(data => fact[1].setAttribute('value', "Rijk: " + data.kingdom + "\n Afdeling: " + data.phylum + "\n Orde: " + data.order + "\n Familie: " + data.family ));
-                console.log("in this.answer");
-
                 uitkomst.setAttribute("src", "./img/Mycobacteria.jpg");
               
             

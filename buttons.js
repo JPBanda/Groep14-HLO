@@ -14,6 +14,8 @@ AFRAME.registerComponent('button', {
         this.activateButton = function(){
             for (let i = 0; i < buttons.length; i++){
                 buttons[i].addEventListener('click', function(evt){
+                    let door_open = new Audio("./Sounds/dooropen.mp3");
+                    door_open.volume = 0.05;
                     const pipet = document.getElementsByClassName("js--pickup_pipet")[0];
                     bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 90 -45';
                     buttons[i].setAttribute('animation', bani.value);
@@ -31,18 +33,21 @@ AFRAME.registerComponent('button', {
 
                     // Goede antwoorden
                     if(i == 1){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
+                        door_open.play();
+                        ani.value = 'property: position; easing: linear; dur: 11000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
                         doors[2].setAttribute('animation', ani.value);
                         text[0].setAttribute('value', "Dit is het juiste antwoord, de kleur is namelijk bij gram positief blauw.");
                     }
                     if (i == 5){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[3].getAttribute('position').x + " -4.6 " + doors[3].getAttribute('position').z;
+                        door_open.play();
+                        ani.value = 'property: position; easing: linear; dur: 11000; to:' + doors[3].getAttribute('position').x + " -4.6 " + doors[3].getAttribute('position').z;
                         doors[3].setAttribute('animation', ani.value);
                         text[1].setAttribute('value', "Dit is het juiste antwoord, de vorm van een bacil is namelijk staafvorming.");
                     }
                     if(i == 7){
-                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
-                        doors[2].setAttribute('animation', ani.value); //deur 5 in normaal
+                        door_open.play();
+                        ani.value = 'property: position; easing: linear; dur: 11000; to:' + doors[5].getAttribute('position').x + " -4.6 " + doors[5].getAttribute('position').z;
+                        doors[5].setAttribute('animation', ani.value); //deur 5 in normaal
                         text[3].setAttribute('value', "Dit is het juiste antwoord, de bacterie is niet verkleurd en dit gebeurt als de bacterie zuurvast is.");
                         pipet.remove();
                     }
