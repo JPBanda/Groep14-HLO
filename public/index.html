@@ -15,7 +15,9 @@
 </head>
 <body>
     <a-scene id="js--scene">
-        <a-camera id='js--camera' position='0 1.5 5' wasd-controls="acceleration: 200;">
+        
+        <a-entity id='js--camera' position='0 1.5 5' wasd-controls="acceleration: 200;">
+        <a-camera >
             <a-cursor 
             id='js--cursor'
             color='purple'
@@ -28,6 +30,7 @@
             raycaster="objects: .js--interact"
             log="event: test;"></a-cursor>
         </a-camera>
+        </a-entity>
 
         <a-assets>
             <a-asset-item id="microscope-obj" src="./BlenderModellen/microscope.obj"></a-asset-item>
