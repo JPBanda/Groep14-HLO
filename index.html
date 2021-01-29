@@ -49,7 +49,6 @@
         <a-gltf-model pickup id="preparaat" class="js--interact" src="#preparaat-gltf" position="-5 1 -2" scale="0.04 0.04 0.04"></a-gltf-model>
         <a-gltf-model pickup id="gasbrander" class="js--interact" src="#gasbrander-gltf" position="5 0.75 -2" scale="1.2 1.2 1.2"></a-gltf-model>
         <a-obj-model class="js--interact" src="#klem-obj" mtl="#klem-mtl" position="3 0 -2" scale="0.09 0.09 0.09"></a-obj-model>
-        <a-obj-model hint class='js--gloeilamp js--interact' src="#gloeilamp-obj" mtl="#gloeilamp-mtl" position="-4 0.5 0" scale="0.09 0.09 0.09" log="event: test;"></a-obj-model>
         <a-obj-model pickup  id="microscope" class="js--interact" src="#microscope-obj" mtl="#microscope-mtl" position="5 1 -7" scale="0.08 0.08 0.08"></a-obj-model>
             
         <!-- loop plekken -->
@@ -132,6 +131,23 @@
         <a-box color="grey" position="0 1.1 15.05" width="2" depth="0.1" height="5" rotation="0 0 0"></a-box>
         <a-box color="grey" position="-3.95 1.1 15.05" width="2" depth="0.1" height="5" rotation="0 0 0"></a-box>
         <a-box color="grey" position="-1.95 1.1 15.05" width="2" depth="0.1" height="5" rotation="0 0 0"></a-box>
+        <!--Foto's van ons-->
+        <a-text value="Wie zijn wij?" position="0.5 3.1 14.9" rotation="0 180 0"></a-text>
+        <a-image src="./img/Bas.png" position="0 1.8 14.9" rotation="0 180 0" scale="1.5 1.5 1.5"></a-image>
+        <a-text value="Baeshee \n Bas Barg" position="0.45 0.7 14.9" rotation="0 180 0"></a-text>
+        <a-image src="./img/Max.png" position="2.5 1.8 14.9" rotation="0 180 0" scale="1.5 1.5 1.5"></a-image>
+        <a-text value="MaxVssr \n Max Visser" position="3.05 0.7 14.9" rotation="0 180 0"></a-text>
+        <a-image src="./img/Jan.png" position="-2.5 1.8 14.9" rotation="0 180 0" scale="1.5 1.5 1.5"></a-image>
+        <a-text value="JPBanda \n Jan Banda" position="-1.95 0.7 14.9" rotation="0 180 0"></a-text>
+        <!--Opleiding info-->
+        <a-image src="./img/hsleiden.png" rotation="0 -90 0" position="4.85 2.2 11.5" ></a-image>
+        <a-image src="./img/code.png" rotation="0 -90 0" position="4.85 2.2 13" ></a-image>
+        <a-text value="Wij zijn studenten van de opleiding Informatica aan de Hogeschool Leiden" position= "4.85 1.2 10" rotation="0 -90 0"></a-text>
+        <!--Git wall-->
+        <a-image src="./img/frame.png" rotation="0 90 0" position="-4.85 2.4 12.05"></a-image>
+        <a-text value="Scan de QR-code om ons code proces te zien!" rotation="0 90 0" position="-4.85 1.2 14.55"></a-text>
+
+
 
         <!-- achter -->
         <a-box color="grey" position="8 1.1 0.95" width="2" depth="0.1" height="5"></a-box>
@@ -171,6 +187,7 @@
         <!--Deur rechts, achter deze deur staan de bomen voor het determineren van bacteriën + api info-->
         <a-box class="js--door" color="red" position="9 1.1 -4.5" width="2" depth="0.1" height="2.4" rotation="0 90 0"></a-box>
         <a-box color="grey" depth="0.2" width="2" height="1.3" position="9.05 2.95 -4.5" rotation="0 90 0"></a-box>
+        <a-text value="Extra Info" position="8.95 2.95 -5" rotation="0 -90 0"></a-text>
         <a-box color="blue" width="0.3" height="0.7" depth="0.1" position="8.9 1.1 -3" rotation="0 -90 0">
             <a-plane color="black" width="0.1" height="0.4" position="0 0 0.06"></a-plane>
          </a-box>
@@ -204,6 +221,11 @@
         <a-box color="grey" position="17 1.1 -6.5" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
         <a-box color="grey" position="17 1.1 -2.5" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
         <a-box color="grey" position="17 1.1 -1" width="2" depth="0.1" height="5" rotation="0 -90 0"></a-box>
+        <!--Text-->
+        <a-text value="Om jullie te helpen staat hier wat extra informatie" position="16.95 2.5 -6.25" rotation="0 -90 0" textstyle="bold"></a-text>
+        <a-text value="Hier rechts staat de determineerboom van gram-negatieven" position="16.95 1.7 -6.25" rotation="0 -90 0"></a-text>
+        <a-text value="Hier links staat de determineerboom van gram-positieven" position="16.95 1.2 -6.25" rotation="0 -90 0"></a-text>
+
 
         <!-- voor -->
         <a-box color="grey" position="8 1.1 -10.95" width="2" depth="0.1" height="5"></a-box>
@@ -310,7 +332,7 @@
           </a-box>
  
          <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-19 1 -1.5" rotation="0 90 45">
-             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>w
+             <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
          </a-box>
          <a-box button class="js--button js--interact" color="blue" width="0.1" height="0.7" depth="0.1" position="-21 1 -1.5" rotation="0 90 45">
              <a-box color="blue" width="0.2" height="0.2" depth="0.2" position="0 0.3 0"></a-box>
