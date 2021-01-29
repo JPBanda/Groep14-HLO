@@ -17,6 +17,16 @@ AFRAME.registerComponent('hint', {
             if(i == 1){
               text[i].setAttribute('value', "Kijk nog eens goed naar de vorm van het voorbeeld.");
             }
+
+            if(i == 2){
+              text[i].setAttribute('value', "Kijk of je een 2e kleur ziet dit duidt op sporen.");
+            }
+
+            if(i == 3){
+              text[i].setAttribute('value', "Kijk goed naar de kleur van de bacterie en dan naar de kleur op het nieuwe plaatje.");
+            }
+
+
             });
         }
 
