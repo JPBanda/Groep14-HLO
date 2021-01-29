@@ -9,11 +9,12 @@ AFRAME.registerComponent('button', {
         const text = document.getElementsByClassName("js--hint-text");
         let ani = document.createAttribute('animation');
         let bani = document.createAttribute('animation');
-        console.log("in init")
+        
       
         this.activateButton = function(){
             for (let i = 0; i < buttons.length; i++){
                 buttons[i].addEventListener('click', function(evt){
+                    const pipet = document.getElementsByClassName("js--pickup_pipet")[0];
                     bani.value = 'property: rotation; easing: linear; dur: 1000; to: 0 90 -45';
                     buttons[i].setAttribute('animation', bani.value);
         
@@ -23,6 +24,9 @@ AFRAME.registerComponent('button', {
                     }
                     if(i == 3){
                         text[1].setAttribute('value', "Dit is helaas het verkeerde antwoord, de vorm van deze soort is bolvormig.");
+                    }
+                    if (i == 6){
+                        text[3].setAttribute('value', "Dit is helaas het verkeerde antwoord, de bacterie is niet verkleurd en dit gebeurt wel als hij niet zuurvast is.");
                     }
 
                     // Goede antwoorden
@@ -35,6 +39,12 @@ AFRAME.registerComponent('button', {
                         ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[3].getAttribute('position').x + " -4.6 " + doors[3].getAttribute('position').z;
                         doors[3].setAttribute('animation', ani.value);
                         text[1].setAttribute('value', "Dit is het juiste antwoord, de vorm van een bacil is namelijk staafvorming.");
+                    }
+                    if(i == 7){
+                        ani.value = 'property: position; easing: linear; dur: 5000; to:' + doors[2].getAttribute('position').x + " -4.6 " + doors[2].getAttribute('position').z;
+                        doors[2].setAttribute('animation', ani.value); //deur 5 in normaal
+                        text[3].setAttribute('value', "Dit is het juiste antwoord, de bacterie is niet verkleurd en dit gebeurt als de bacterie zuurvast is.");
+                        pipet.remove();
                     }
 
                     // Antwoorden die er totaal niet bij horen
