@@ -16,6 +16,7 @@ AFRAME.registerComponent("pickup", {
     const doors = document.getElementsByClassName("js--door");
     let ani = document.createAttribute("animation");
     let bani = document.createAttribute("animation");
+    
 
     this.doorUnlock = function () {
       if (holdms == "placed" && holdgb == "placed" && holdprep == "placed") {
@@ -135,7 +136,7 @@ AFRAME.registerComponent("pickup", {
 
     function unlockDoor() {
       if (holdms == "placed" && holdgb == "placed" && holdprep == "placed") {
-        let door_open = new Audio("./Sounds/door_open.mp3");
+        let door_open = new Audio("./Sounds/dooropen.mp3");
         door_open.play();
         ani.value =
           "property: position; easing: linear; dur: 11000; to:" +
