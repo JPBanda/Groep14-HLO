@@ -5,15 +5,14 @@ AFRAME.registerComponent('pipet', {
 
     init: function () {
       const pipet = document.getElementsByClassName("js--pickup_pipet");
-      const camera = document.getElementById('js--vision');
       let hold  = null;
 
       this.pickupPipet = function(){
           for (let i = 0; i < pipet.length; i++){
               pipet[i].addEventListener("click", function(evt) {
-                const camera = document.getElementById('js--camera');
+                const camera = document.getElementById('js--vision');
                   if (hold == null){
-                      camera.innerHTML += '<a-gltf-model pipet src="#pipet-gltf"  class="js--pickup_pipet js--interact" zuurvast scale="2 2 2" position="0.5 -1 -1" rotation="0 0 180"></a-gltf-model>'
+                      camera.innerHTML += '<a-gltf-model pipet src="#pipet-gltf"  class="js--pickup_pipet js--interact" zuurvast scale="2 2 2" position="0.5 0 -1" rotation="0 0 180"></a-gltf-model>'
                       
                       hold = 'pipet';
                       this.remove();
